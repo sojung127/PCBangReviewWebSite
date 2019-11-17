@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="review.css">
     <title>PC방 리뷰 사이트</title>
 
 </head>
@@ -15,31 +16,51 @@
         </nav>
     </header>
     <section>
-        <h1>리뷰 작성</h1>
+        <h1 style="text-align: left; font-size:200%; padding-left:5%;">리뷰 작성</h1>
         <article>
-            <h4>어깨 PC방</h4>
+            <h1 style="font-size:250%;">어깨 PC방</h1>
+            <p>서울시 서대문구 대현동 14-7</p>
             <form>
             <table>
-                <tr>
-                    <td>
+                <tr style="text-align: left;">
+                    <td ">
+                    <!-- <input type="button" value="☆" style="margin-left: 30px;">
                     <input type="button" value="☆">
                     <input type="button" value="☆">
                     <input type="button" value="☆">
-                    <input type="button" value="☆">
-                    <input type="button" value="☆"></td></tr>
-                <tr>
-                    <td>
-                    <input type ="text" name="speed" value="수강신청, 티켓팅 후기 및 붐비는 시간대 혹은 날을 적어주세요." size="200"></td>
+                    <input type="button" value="☆"> -->
+                    <div class="star-box">
+                        <span class="star star_left"></span>
+                        <span class="star star_right"></span>
+                      
+                        <span class="star star_left"></span>
+                        <span class="star star_right"></span>
+                      
+                        <span class="star star_left"></span>
+                        <span class="star star_right"></span>
+                      
+                       <span class="star star_left"></span>
+                       <span class="star star_right"></span>
+                      
+                       <span class="star star_left"></span>
+                       <span class="star star_right"></span>
+                    </div>
+                </td>
+                    
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" name="clean" value="컴퓨터 및 시설의 사용감, PC방의 청결도, 분위기에 대해 적어주세요." size="200">
+                    <input class="text_input" type ="text" name="speed" value="수강신청, 티켓팅 후기 및 붐비는 시간대 혹은 날을 적어주세요." size="200"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" name="clean" value="컴퓨터 및 시설의 사용감, PC방의 청결도, 분위기에 대해 적어주세요." size="200"  class="text_input">
                     </td>
                 </tr>
                 <tr><td>
-                    <input type="text" name="etc" value="그 외 하고 싶은 말을 적어주세요." size="200">
+                    <input type="text" name="etc" value="그 외 하고 싶은 말을 적어주세요." size="200" class="text_input">
                 </td></tr>
-                <tr><td>
+                <tr style="text-align: left;"><td>
                     <h3>소프트웨어 설치 여부</h3>
                     <p>
                         <input type="checkbox" name="platform" value="pf1">플랫폼1
@@ -55,7 +76,7 @@
                     </p>
                 </td></tr>
             </table>
-            <input type="submit" value="등록">
+            <input type="submit" value="제출하기" style="color:white; margin:10px; background-color: #444444; border-radius: 5px;">
             </form>
         </article>
     </section>
