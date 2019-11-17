@@ -1,0 +1,151 @@
+body, html {
+    height: 100%;
+}
+
+/* The hero image */
+.hero-image {
+  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+  background-image:  url("mainbanner.png");
+
+  /* Set a specific height */
+  height: 70%;
+
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+/* Place text in the middle of the image */
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+header{height: 300px;}
+
+    .menuLogo
+    {
+        float:left;
+    }
+
+    .menuItem
+    {
+        float:right;
+    }
+
+    
+
+    .menubar li
+    {
+        list-style:none;
+        float:left;
+
+    }
+
+    .menubar a
+    {
+        color:#FFFFFF;
+        display:block;
+        font-weight:900;
+        line-height:100px;
+        padding:0px 110px 0px 20px;
+        text-align:center;
+        font-size: 30px;
+    }
+
+    .search
+    {
+      text-align: center;
+    }
+    .search_in{
+      padding-top: 150px;
+      display : inline-block;
+    }
+
+.select_box{
+  display: inline-block;
+  width: 366px; height: 42px;
+  border: 3px solid #ffffff;
+}
+
+.green_window {
+  display: inline-block;
+  width: 366px; height: 34px;
+  border: 3px solid #ffffff;
+  
+}
+.input_text {
+  width: 348px; height: 21px;
+  margin: 6px 0 0 9px;
+  border: 0;
+  line-height: 21px;
+  font-weight: bold;
+  font-size: 16px;
+  outline: none;
+}
+.sch_smit {
+  width: 54px; height: 40px;
+  margin: 0; border: 0;
+  vertical-align: top;
+  border: 3px solid #ffffff;
+  color: white;
+  font-weight: bold;
+  border-radius: 1px;
+  cursor: pointer;
+}
+.sch_smit:hover {
+  background: #56C82C;
+}
+    
+    
+.contents {
+  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+  background-image:  url("background.png");
+  background-size: cover;
+
+  
+
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+
+}
+  
+.contents h1{
+  color: gray;
+
+  padding-top: 50px;
+  padding-left : 50px;
+
+
+}  
+
+.image_gallery{
+  white-space: nowrap;
+  display: flex;
+  padding-left : 50px;
+  padding-bottom: 50px;
+
+}
+
+.image_gallery::after{
+
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.image_box{
+  flex: 33.33%;
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
