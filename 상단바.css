@@ -1,0 +1,15 @@
+/* 메인 페이지 제외 모든 페이지 공통 상단 메뉴 css 코드*/
+#main_menu { background-image : url('캡처.png'); /*url 안에 들어가는 것은 상단바 배경 이미지 파일명*/
+	padding:10px;
+	list-style:none;
+	}
+#main_menu ul {float:right }
+#main_menu li {
+	display:inline-block;
+	list-style:none;
+	color:white;
+	padding:10px 0 0 10px;
+	font: bold 24px san-serif;
+	}
+#main_menu li:hover{color:#000000;
+}
