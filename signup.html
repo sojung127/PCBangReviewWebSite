@@ -1,124 +1,109 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>PC방 리뷰 사이트</title>
+    <link rel="stylesheet" href="signup.css">
+    <link rel="stylesheet" href="상단바.css">
     <style>
-        body{
-            background-image: url('background.png');
-            
+        td{
+            padding-bottom:20px;
         }
-        section {
-    width: 80%;
-    
-    margin:auto;
-}
-
-table{
-    width:500px;
-    text-align:left;
-    margin:auto;
-    margin-left:10px;
-    padding:10px;
-
-}
-
-input[type=button] { 
-    width:125px;
-    color:white; margin:10px; background-color: #444444; border-radius: 5px;
-}
-
-input[type=submit]{
-    width:100px;
-    height: 30px;
-    color:white; margin:10px; background-color: #444444; border-radius: 5px;
-
-}
-
     </style>
 
 </head>
+
 <body>
-    <header style="display:block">
-        <nav>
-            <li>홈</li>
-            <li>검색</li>
-            <li>로그인</li>
-            <li>회원가입</li>
+    <header>
+        <nav id="main_menu">
+
+            <image id="menu_logo" src="Search_window+css\logo.png" width="100" height="75" alt="">
+
+                <ul id="menu_tab">
+
+                    <a href="mainpage\mainpage.html"><li>홈</li></a>
+                    <a href="Search_window+css\search_window.html"><li>검색</li></a>
+                    <a href=""><li>로그인</li></a>
+                    <a href="signup.html"><li style="color:#444444">회원가입</li></a>
+                </ul>
+
         </nav>
     </header>
     <section>
-        
+
         <div>
             <h1>회원가입</h1>
             <form>
                 <h3>필수항목</h3>
                 <table>
                     <tr>
-                    <td><strong>이름</strong></td>
-                    <td><input type="text" name="name"></td>
+                        <td>이름</td>
+                        <td><input type="text" name="name"></td>
                     </tr>
                     <tr>
-                        <td><strong>닉네임</strong></td>
+                        <td>닉네임</td>
                         <td><input type="text" name="nick">
-                    <input type="button" value="닉네임 중복확인"></td>
+                            <input type="button" value="닉네임 중복확인"></td>
                     </tr>
                     <tr>
-                            <td><strong>ID</strong></td>
-                            <td><input type="text" name="id">
+                        <td>ID</td>
+                        <td><input type="text" name="id">
                             <input type="button" value="ID 중복확인"></td>
                     </tr>
                     <tr>
-                            <td><strong>비밀번호</strong></td>
-                            <td><input type="password" name="pw"></td>
+                        <td>비밀번호</td>
+                        <td><input type="password" name="pw"></td>
                     </tr>
                     <tr>
-                            <td><strong>비밀번호 확인</strong></td>
-                            <td><input type="password" name="pw_re"></td>
+                        <td>비밀번호 확인</td>
+                        <td><input type="password" name="pw_re"></td>
                     </tr>
                     <tr>
-                            <td><strong>전화번호</strong></td>
-                            <td><input type="tel" name="telephone"></td>
+                        <td>전화번호</td>
+                        <td><input type="tel" name="telephone"></td>
                     </tr>
                 </table>
                 <h3>선택항목</h3>
                 <table>
                     <tr>
-                        <td><strong>주소</strong></td>
+                        <td style="width:150px">주소</td>
                         <td>
-                        <select>
-                            <option value="서울시">서울시</option>
-                            <option value="경기도">경기도</option>
-                            <option value="강원도">강원도</option>
-                        </select>
-                        <select>
+                            <select>
+                                <option value="서울시">서울시</option>
+                                <option value="경기도">경기도</option>
+                                <option value="강원도">강원도</option>
+                            </select>
+                            <select>
                                 <option value="서대문구">서대문구</option>
                                 <option value="수정구">수정구</option>
                                 <option value="북구">북구</option>
-                        </select>
-                        <select>
-                            <option value="대현동">대현동</option>
-                            <option value="복정동">복정동</option>
-                            <option value="암사동">암사동</option>
-                        </select>
-                    </td>
+                            </select>
+                            <select>
+                                <option value="대현동">대현동</option>
+                                <option value="복정동">복정동</option>
+                                <option value="암사동">암사동</option>
+                            </select>
+                        </td>
                     </tr>
-                        <!-- 추후 이 사이트를 참고하여 앞의 선택에 따라 뒤의 선택지가 바뀌도록 할 예정 https://okky.kr/article/74588-->
+                    <!-- 추후 이 사이트를 참고하여 앞의 선택에 따라 뒤의 선택지가 바뀌도록 할 예정 https://okky.kr/article/74588-->
                     <tr>
                         <td>
-                                <strong>email</strong></td><td>
-                                <input type="email" name="mail">
+                            email</td>
+                        <td>
+                            <input type="email" name="mail">
                         </td>
                     </tr>
                     <tr>
                         <td></td>
-                        <td style="text-align: right;"><input type="submit" value="제출" ></td>
+                        <td style="text-align: right;"><input type="submit" value="제출"></td>
                     </tr>
                 </table>
-                
+
             </form>
         </div>
     </section>
 
 </body>
+
 </html>

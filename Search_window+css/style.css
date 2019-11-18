@@ -1,0 +1,86 @@
+/* 메인 페이지 제외 모든 페이지 공통 상단 메뉴 css 코드*/
+#main_menu { background-image : url('캡처.png');
+	padding:10px;
+	list-style:none;
+	}
+#main_menu ul {float:right }
+#main_menu li {
+	display:inline-block;
+	list-style:none;
+	color:white;
+	padding:10px 0 0 10px;
+	font: bold 24px san-serif;
+	}
+#main_menu li:hover{color:#000000;
+}
+
+
+
+/* 검색 페이지? 메뉴 바*/
+#search_menu{
+	margin-top:100px;
+}
+table. td{
+	border: 12px solid black;
+}
+table {	
+	list-style:none;
+	width:1000px;
+	height:300px;
+	margin:auto;
+	padding:50px;
+	text-align:center;
+	border:16px solid white;
+}
+.search_type {
+	background-color:#424242;
+	color:white;
+	font:bold 24px san-serif;}
+
+.search_input {
+	background-color:white;
+	font: bold 16px san-serif;}
+.search_submit {
+	background-color:#424242;
+	color:white;
+	font:bold 24px san-serif;}
+.search_button {
+	background-color:#424242;
+	color:white;
+	float:center;
+	border:none;
+	outline: none;
+	cursor: pointer;
+	font:bold 24px san-serif;
+}
+.input_text {
+	margin: auto;
+	border: 0;
+	line-height: 21px;
+	font-weight: bold;
+	font-size: 24px;
+	outline: none;
+}
+
+.toggle_button {
+    cursor:pointer;
+    background:#424242;
+    color:white;
+    border:1px solid #ccc;
+}
+#toggle_button,
+#toggle_contents {
+    height:0;
+    overflow:hidden;
+    position:absolute;
+}
+#toggle_button:checked + #toggle_contents {
+    height:auto;
+    position:relative;
+    border-top:0;
+    padding:10px;
+}
+
+
+
+body{background:#F2F2F2; }
