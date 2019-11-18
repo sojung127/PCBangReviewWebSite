@@ -1,0 +1,31 @@
+/* ���� ������ ���� ��� ������ ���� ��� �޴� css �ڵ�*/
+@charset "utf-8";
+body{
+	background-image: url('background.png');
+	margin:0px;
+}
+section{
+	margin:50px;
+}
+header{
+	margin:0px;
+}
+#main_menu { 
+	background-image : url("캡처.png"); /*url �ȿ� ���� ���� ��ܹ� ��� �̹��� ���ϸ�*/
+	background-size : cover;
+	height:75px;	
+	padding:10px;
+	list-style:none;
+	vertical-align: middle;
+}
+#main_menu ul {float:right }
+#main_menu li {
+	display:inline-block;
+	list-style:none;
+	color:white;
+	padding:10px 0 0 10px;
+	font: bold 24px san-serif;
+	}
+#main_menu li:hover{color:#444444;
+}
+

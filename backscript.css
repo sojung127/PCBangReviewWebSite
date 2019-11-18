@@ -1,0 +1,87 @@
+.default  {
+   background-color: #5F5C5C
+}
+
+#infomenu {
+background-color: rgb(95,92,92);
+width: 400px;
+text-align: center;
+
+}
+
+body {
+background-image: url( 'webback.png' );
+background-size: auto;
+}
+
+img {
+	width: 300px;
+	float: left;
+}
+
+#main_menu { background-image : url('캡처.png'); /*url 안에 들어가는 것은 상단바 배경 이미지 파일명*/
+	padding:10px;
+	list-style:none;
+	}
+#main_menu ul {float:right }
+#main_menu li {
+	display:inline-block;
+	list-style:none;
+	color:white;
+	padding:10px 0 0 10px;
+	font: bold 24px san-serif;
+	}
+#main_menu li:hover{color:#000000;
+}
+
+.content{
+width: 800px;
+
+
+}
+
+#main_section  {
+	width: 300px;
+float: left;
+
+}
+
+article.main_article{
+width: 100px;
+float: right;
+}
+
+.review_article{
+width : 800;
+text-align: left;
+}
+
+#but {
+background-color: rgb(255,255,255);
+border-radius: 15px;
+vertical-align: text-top;
+float:right;
+}
+
+#text_menu {
+color: rgb(255,255,255);
+width: 800px;
+margin: 0 auto;
+margin-bottom: 10px;
+text-align: left;
+}
+
+#goright{
+	float: top;
+}
+
+#seat{
+	background-color: rgb(95,92,92);
+	text-align:center;
+	height: 150px;
+	width: 400px;
+}
+
+#textseat{
+	color: rgb(255,255,255);
+}

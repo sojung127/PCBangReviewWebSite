@@ -1,32 +1,33 @@
-/* ¸ÞÀÎ ÆäÀÌÁö Á¦¿Ü ¸ðµç ÆäÀÌÁö °øÅë »ó´Ü ¸Þ´º css ÄÚµå*/
-#main_menu { background-image : url('Ä¸Ã³.png');
-	padding:10px;
-	list-style:none;
-	}
-#main_menu ul {float:right }
-#main_menu li {
-	display:inline-block;
-	list-style:none;
-	color:white;
-	padding:10px 0 0 10px;
-	font: bold 24px san-serif;
-	}
-#main_menu li:hover{color:#000000;
-}
 
 
+h1{text-align:center;}
 
-/* °Ë»ö ÆäÀÌÁö? ¸Þ´º ¹Ù*/
+
+/* ï¿½Ë»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½? ï¿½Þ´ï¿½ ï¿½ï¿½*/
 #search_menu{
 	margin-top:100px;
 }
-table. td{
+#search_table.td{
 	border: 12px solid black;
 }
+
+
+#review_table{
+ width:90%;
+    text-align:left;
+    margin-top:100px;
+    padding:10px;
+	outline:none;
+    background-color: white;
+	border:5px solid #585858;
+	border-radius:5px;
+}
+
+
 table {	
 	list-style:none;
 	width:1000px;
-	height:300px;
+	height:400px;
 	margin:auto;
 	padding:50px;
 	text-align:center;
@@ -82,5 +83,27 @@ table {
 }
 
 
-
-body{background:#F2F2F2; }
+.star{
+    display:inline-block;
+    width: 30px;height: 60px;
+    cursor: pointer;
+}
+.star:hover{
+    background-color: moccasin;
+}
+.star:visited{
+    background-color: yellow;
+}
+.star_left{
+    background: url(http://gahyun.wooga.kr/main/img/testImg/star.png) no-repeat 0 0; 
+    background-size: 60px; 
+    margin-right: -3px;
+  }
+  .star_right{
+    background: url(http://gahyun.wooga.kr/main/img/testImg/star.png) no-repeat -30px 0; 
+    background-size: 60px; 
+    margin-left: -3px;
+  }
+  .star.on{
+    background-image: url(http://gahyun.wooga.kr/main/img/testImg/star_on.png);
+  }
