@@ -14,9 +14,9 @@ table{
     margin:auto;
     padding:10px;
 
-    background-image: url(tabl.png);
-    background-size: contain;
-    background-repeat: no-repeat;
+    background-color:white;
+    border: thick solid #686767;
+    border-radius:10px; 
 }
 input{
     padding : 10px;
