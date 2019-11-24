@@ -11,7 +11,10 @@
         
     </style>
 
-
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="..\address.js"></script>
+<script src="..\popup.js"></script>
 </head>
 
 <body>
@@ -64,7 +67,7 @@
                     <tr>
                         <td>닉네임</td>
                         <td>출발드림팀</td>
-                        <td><input type="button" value="닉네임 변경하기"></td>
+                        <td><input type="button" value="닉네임 변경하기" onclick="popup('nickChange.html')"></td>
                     </tr>
                     <tr>
                         <td>ID</td>
@@ -85,21 +88,8 @@
                     <tr>
                         <td>주소</td>
                         <td>
-                            <select>
-                                <option value="서울시">서울시</option>
-                                <option value="경기도">경기도</option>
-                                <option value="강원도">강원도</option>
-                            </select>
-                            <select>
-                                <option value="서대문구">서대문구</option>
-                                <option value="수정구">수정구</option>
-                                <option value="북구">북구</option>
-                            </select>
-                            <select>
-                                <option value="대현동">대현동</option>
-                                <option value="복정동">복정동</option>
-                                <option value="암사동">암사동</option>
-                            </select>
+                                <select name="sido1" id="sido1"></select>
+                                <select name="gugun1" id="gugun1"></select>
                         </td>
                     </tr>
                     <tr>

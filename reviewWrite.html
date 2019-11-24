@@ -4,6 +4,34 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="MenuBar.css">
     <link rel="stylesheet" href="review.css">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $('#star_grade').children("a").click(function () {
+            alert("hey");
+            $(this).parent().children("a").removeClass("on");  /* 별점의 on 클래스 전부 제거 */
+            $(this).addClass("on").prevAll("a").addClass("on"); /* 클릭한 별과, 그 앞 까지 별점에 on 클래스 추가 */
+            return false;
+        });
+
+    </script>
+    <style>
+        
+.star_rating {font-size:0; letter-spacing:-4px;}
+.star_rating a {
+    font-size:22px;
+    letter-spacing:0;
+    display:inline-block;
+    margin-left:5px;
+    color:#ccc;
+    text-decoration:none;
+}
+.star_rating a:first-child {margin-left:0;}
+.star_rating a.on {color:#777;}
+
+
+출처: https://uidevelop.tistory.com/36# [UI Develop]
+    </style>
     <title>PC방 리뷰 사이트</title>
 
 </head>
@@ -24,31 +52,18 @@
         <article>
             <h1 style="font-size:250%; margin:0px;">어깨 PC방</h1>
             <p>서울시 서대문구 대현동 14-7</p>
+            <p id="star_grade">
+                    <a href="#">★</a>
+                    <a href="#">★</a>
+                    <a href="#">★</a>
+                    <a href="#">★</a>
+                    <a href="#">★</a>
+            </p>
             <form>
             <table>
                 <tr style="text-align: left;">
-                    <td ">
-                    <!-- <input type="button" value="☆" style="margin-left: 30px;">
-                    <input type="button" value="☆">
-                    <input type="button" value="☆">
-                    <input type="button" value="☆">
-                    <input type="button" value="☆"> -->
-                    <div class="star-box" style="padding-left:25px;">
-                        <span class="star star_left"></span>
-                        <span class="star star_right"></span>
-                      
-                        <span class="star star_left"></span>
-                        <span class="star star_right"></span>
-                      
-                        <span class="star star_left"></span>
-                        <span class="star star_right"></span>
-                      
-                       <span class="star star_left"></span>
-                       <span class="star star_right"></span>
-                      
-                       <span class="star star_left"></span>
-                       <span class="star star_right"></span>
-                    </div>
+                    <td>
+                            
                 </td>
                     
                 </tr>

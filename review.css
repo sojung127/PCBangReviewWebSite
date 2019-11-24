@@ -29,28 +29,11 @@ input{
     padding:5px;
     vertical-align: text-top;
 }
-/* https://gahyun-web-diary.tistory.com/157 */
-.star{
-    display:inline-block;
-    width: 30px;height: 60px;
-    cursor: pointer;
+#star_grade a{
+    text-decoration: none;
+    color: gray;
 }
-.star:hover{
-    background-color: moccasin;
+#star_grade a.on{
+    color: red;
 }
-.star:visited{
-    background-color: yellow;
-}
-.star_left{
-    background: url(http://gahyun.wooga.kr/main/img/testImg/star.png) no-repeat 0 0; 
-    background-size: 60px; 
-    margin-right: -3px;
-  }
-  .star_right{
-    background: url(http://gahyun.wooga.kr/main/img/testImg/star.png) no-repeat -30px 0; 
-    background-size: 60px; 
-    margin-left: -3px;
-  }
-  .star.on{
-    background-image: url(http://gahyun.wooga.kr/main/img/testImg/star_on.png);
-  }
+/* https://longbeom.tistory.com/3 */
