@@ -5,6 +5,8 @@
 	<title>Bob's Auto Parts - Order Results</title>
 	<link rel="stylesheet" href="mainpagecss.css"> 
 	<link rel="stylesheet" href="..\MenuBar.css">
+
+	<script type ="text/javascript" src = "mainpagescript.js"></script>
 </head> 
 
 <body> 
@@ -17,6 +19,8 @@
 				<ul class="menuLogo">
 					<li><a href="../reviewWrite.html">리뷰하기</a></li>
 					<li><a href="#">대회정보</a></li>
+				</ul>
+				<ul class="menuItem">
 					<li><a href="../signup.html">회원가입</a></li>
 					<li><a href="../signup.html">로그인</a></li>
 				</ul>
@@ -26,14 +30,14 @@
 
 	<div class="search">
 		<div class ="search_in">
-			<select class="select_box">
+			<select name="selectBox" class="select_box">
 				<option value="바나나">서울</option>
 				<option value="바나나">경기도</option>
 			</select>
 		</div>
 		<div class="search_in">
 		<span class='green_window'>
-			<input type='text' class='input_text' style="background-color:transparent;">
+			<input type='text' name="search_word" class='input_text' style="background-color:transparent;">
 		</span>
 		<a href="..\Search_window+css\search_window.html"><button type='submit' class='sch_smit' style="background-color:transparent;">검색</button></a>
 	</div>
