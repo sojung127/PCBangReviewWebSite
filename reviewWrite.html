@@ -30,7 +30,7 @@
 .star_rating a.on {color:#777;}
 
 
-출처: https://uidevelop.tistory.com/36# [UI Develop]
+/* 출처: https://uidevelop.tistory.com/36# [UI Develop] */
     </style>
     <title>PC방 리뷰 사이트</title>
 
@@ -59,7 +59,7 @@
                     <a href="#">★</a>
                     <a href="#">★</a>
             </p>
-            <form>
+            <form action="review.php" method="POST" enctype="multipart/form-data">
             <table>
                 <tr style="text-align: left;">
                     <td>
@@ -83,16 +83,20 @@
                     <div style="padding-left:25px;">
                     <h3>소프트웨어 설치 여부</h3>
                     <p>
-                        <input type="checkbox" name="platform" value="pf1">플랫폼1
-                        <input type="checkbox" name="platform" value="pf2">플랫폼2
-                        <input type="checkbox" name="platform" value="pf3">플랫폼3
+                        <input type="checkbox" name="pf1" value="pf1">플랫폼1
+                        <input type="checkbox" name="pf2" value="pf2">플랫폼2
+                        <input type="checkbox" name="pf3" value="pf3">플랫폼3
                     </p>
                     <p>
-                        <input type="checkbox" name="game" value="game1">게임1
-                        <input type="checkbox" name="game" value="game2">게임2
-                        <input type="checkbox" name="game" value="game3">게임3
-                        <input type="checkbox" name="game" value="game4">게임4
-                        <input type="checkbox" name="game" value="game5">게임5
+                        <input type="checkbox" name="game1" value="game1">게임1
+                        <input type="checkbox" name="game2" value="game2">게임2
+                        <input type="checkbox" name="game3" value="game3">게임3
+                        <input type="checkbox" name="game4" value="game4">게임4
+                        <input type="checkbox" name="game5" value="game5">게임5
+                    </p>
+                    <p>
+                        사진 첨부
+                        <input type="file" name="image"> 
                     </p>
                     </div>
                 </td></tr>

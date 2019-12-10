@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/></head> 
+    <title>Login</title>
+</head>
+<body>
+    <?php
+        @session_start();
+        if(isset($_SESSION["login"])){
+            header('Location: mainpage/mainpage_login.html');
+        }
+    ?>
+    <H2>This is Log in page</h2>
+        <p>Input your ID & PW</p>
+    <form action='login.php' method='POST'>
+        <p>ID : 
+        <input type='text'name='user' /></p>
+        <p>PW : 
+        <input type='password'name='pass' /></p>
+        <input type='submit' value='Login'/>
+    </form>
+</body>
+</html>

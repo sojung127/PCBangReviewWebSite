@@ -33,6 +33,14 @@
 </head>
 
 <body>
+
+    <?php
+        @session_start();
+    
+        if(isset($_SESSION['login'])){
+            header('Location: mainpage/mainpage_login.html');
+        }
+     ?>
     <header>
         <nav id="main_menu">
 
@@ -42,7 +50,7 @@
 
                     <a href="mainpage\mainpage.html"><li>홈</li></a>
                     <a href="Search_window+css\search_window.html"><li>검색</li></a>
-                    <a href=""><li>로그인</li></a>
+                    <a href="login.html"><li>로그인</li></a>
                     <a href="signup.html"><li style="color:#444444">회원가입</li></a>
                 </ul>
 
@@ -52,7 +60,7 @@
 
         <div>
             <h1>회원가입</h1>
-            <form name="signup">
+            <form action='signup.php' method="POST" name="signup">
                 <h3>필수항목</h3>
                 <table>
                     <tr>
