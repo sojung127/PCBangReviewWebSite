@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="signup.css">
+    <link rel="stylesheet" href="MenuBar.css">
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="address.js"></script>
+    <script type="text/javascript">
+        function popup(url){
+            var name= "중복확인";
+
+            var popupX = (document.body.offsetWidth / 2) - (500 / 2);
+//&nbsp;만들 팝업창 좌우 크기의 1/2 만큼 보정값으로 빼주었음
+
+            var popupY= (document.body.offsetHeight / 2) - (150 / 2);
+//&nbsp;만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
+
+            var option = "width=500, height=150, left="+ popupX + ', top='+ popupY;
+            window.open(url, name, option);
+
+        }
+     
+
+
+
+    </script>
+</head>
+<body>
+    <section>
+<div>
+    <h1>회원가입</h1>
+    <form action='signup.php' method="POST" name="signup">
+        <h3>필수항목</h3>
+        <table>
+            <tr>
+                <td>이름</td>
+                <td><input type="text" name="name"></td>
+            </tr>
+            <tr>
+                <td>닉네임</td>
+                <td><input type="text" name="nick">
+                    <input type="button" value="닉네임 중복확인" onclick="popup('nickDuplic.html')"></td>
+            </tr>
+            <tr>
+                <td>ID</td>
+                <td><input type="text" name="id">
+                    <input type="button" value="ID 중복확인" onclick = "popup('idDuplic.html')"></td>
+            </tr>
+            <tr>
+                <td>비밀번호</td>
+                <td><input type="password" name="pw"></td>
+            </tr>
+            <tr>
+                <td>비밀번호 확인</td>
+                <td><input type="password" name="pw_re"></td>
+            </tr>
+            <tr>
+                <td>전화번호</td>
+                <td><input type="tel" name="telephone"></td>
+            </tr>
+        </table>
+        <h3>선택항목</h3>
+        <table>
+            <tr>
+                <td style="width:150px">주소</td>
+                <td>
+                    <select name="sido1" id="sido1"></select>
+                    <select name="gugun1" id="gugun1"></select>
+                </td>
+            </tr>
+            <!-- 추후 이 사이트를 참고하여 앞의 선택에 따라 뒤의 선택지가 바뀌도록 할 예정 https://okky.kr/article/74588-->
+            <tr>
+                <td>
+                    email</td>
+                <td>
+                    <input type="email" name="mail">
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td style="text-align: right;"><input type="submit" value="제출"></td>
+            </tr>
+        </table>
+
+    </form>
+</div>
+    </section>
+</body>
