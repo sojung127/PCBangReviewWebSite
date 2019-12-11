@@ -1,13 +1,33 @@
-
+body{
+    background-image: url('background.png');
+background-size:cover;
+}
 
 h1{text-align:center;}
 
+/* 메인 페이지 제외 모든 페이지 공통 상단 메뉴 css 코드*/
+#main_menu { background-image : url('캡처.png');
+	padding:10px;
+	list-style:none;
+	}
+#main_menu ul {float:right }
+#main_menu li {
+	display:inline-block;
+	list-style:none;
+	color:white;
+	padding:10px 0 0 10px;
+	font: bold 24px san-serif;
+	}
+#main_menu li:hover{color:#000000;
+}
 
-/* �˻� ������? �޴� ��*/
+
+
+/* 검색 페이지? 메뉴 바*/
 #search_menu{
 	margin-top:100px;
 }
-#search_table.td{
+#search_table. td{
 	border: 12px solid black;
 }
 
@@ -26,12 +46,10 @@ h1{text-align:center;}
 
 table {	
 	list-style:none;
-	width:1000px;
+	width:1200px;
 	height:400px;
 	margin:auto;
-	padding:50px;
 	text-align:center;
-	border:16px solid white;
 }
 .search_type {
 	background-color:#424242;
