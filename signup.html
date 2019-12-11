@@ -6,7 +6,7 @@
     <title>PC방 리뷰 사이트</title>
     <?php
         @session_start();
-    
+        $_SESSION['prevPage']=$_SERVER['REQUEST_URI'];
         if(isset($_SESSION['login'])){
             header('Location: mainpage/mainpage_login.html');
         }

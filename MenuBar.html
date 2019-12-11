@@ -11,7 +11,6 @@
 <body>
         <?php
         @session_start();
-    
         if(isset($_SESSION['login'])){
             header('Location: MenuBar_login.html');
         }
@@ -23,10 +22,10 @@
 
             <ul id="menu_tab">
 
-                <a href="mainpage\mainpage.html"><li>홈</li></a>
-                <a href="Search_window+css\search_window.html"><li>검색</li></a>
-                <a href="login.html"><li>로그인</li></a>
-                <a href="signup.html"><li style="color:#444444">회원가입</li></a>
+                <a href="mainpage\mainpage.html" target="body"><li>홈</li></a>
+                <a href="Search_window+css\search_window.html" target="body"><li>검색</li></a>
+                <a href="login.html" target="body"><li>로그인</li></a>
+                <a href="signup.html" target="body"><li style="color:#444444">회원가입</li></a>
             </ul>
 
     </nav>
