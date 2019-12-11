@@ -2,7 +2,7 @@
 <link rel = "stylesheet" href = "backscript.css">
 <link rel = "stylesheet" href = "..\review.css">
 <link rel="stylesheet" href="..\MenuBar.css">
-<link rel="stylesheet" href="<?php echo G5_CSS_URL?>/backscript.css">
+<link rel="stylesheet" href="<?php echo G5_CSS_URL; ?>/backscript.css">
 <head>
  <meta charset="UTF-8">
 <title> PC </title>
@@ -15,7 +15,7 @@
       include("./reviewdb.php");
       $connect=dbconn();
   ?>
-<header>
+<!-- <header>
         <nav id="main_menu">
 
                 <image id="menu_logo" src="..\Search_window+css\logo.png" width="100" height="75" alt="" style="width:100px; height: 75px;">
@@ -37,7 +37,7 @@
                     </ul>
     
             </nav>
-</header>
+</header> -->
 
 <div class ="wrapper">
 <h1> 아좌 PC방 </h1>
@@ -91,7 +91,7 @@
 							ORDER BY reviewNUM DESC';
             $reviewnumresult = mysqli_query($conn, $reviewnumsql);
 			
-			echo '<table class="text-center">'
+			echo '<table class="text-center">';
 			while( $row = mysqli_fetch_array($pcbinforesult) ) {
                 echo '<p>' 
 				. $row['pcbname']  
@@ -160,7 +160,7 @@ function showreview(){
 	}
 	$selbut= $(this);
 	$.each(eval(area0), function () {
-            $reviewstar.append(<? echo $starresult ?>);
+            $reviewstar.append(<?php echo $starresult; ?>);
         });
 	
 }
@@ -317,7 +317,7 @@ while($data=mysql_fetch_array($starresult)) {
 							ORDER BY reviewNUM DESC';
             $reviewnumresult = mysqli_query($conn, $reviewnumsql);
 			
-			echo '<table class="text-center">'
+			echo '<table class="text-center">';
 			while( $row = mysqli_fetch_array($pcbinforesult) ) {
                 echo '<p>' 
 				. $row['pcbname']  
