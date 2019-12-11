@@ -1,7 +1,7 @@
 /* ���� ������ ���� ��� ������ ���� ��� �޴� css �ڵ�*/
 @charset "utf-8";
 body{
-	background-image: url('image/background.png');
+	background-image: url('../image/background.png');
 	background-size: 100% 100%;
 	margin:0px;
 }
@@ -12,7 +12,7 @@ header{
 	margin:0px;
 }
 #main_menu { 
-	background-image : url("image/캡처.png"); /*url �ȿ� ���� ���� ��ܹ� ��� �̹��� ���ϸ�*/
+	background-image : url("../image/캡처.png"); /*url �ȿ� ���� ���� ��ܹ� ��� �̹��� ���ϸ�*/
 	background-size : cover;
 	height:75px;	
 	padding:10px;

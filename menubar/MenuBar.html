@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>PC방 리뷰 사이트</title>
+    <link rel="stylesheet" href="MenuBar.css">
+
+</head>
+<body>
+        <?php
+        @session_start();
+        if(isset($_SESSION['login'])){
+            header('Location: MenuBar_login.html');
+        }
+        ?>
+<header>
+    <nav id="main_menu">
+
+            <a href="../mainpage/mainpage.html" target="body"><image id="menu_logo" src="../Search_window+css/logo.png" width="100" height="75" alt=""></a>
+
+            <ul id="menu_tab">
+
+                <a href="../mainpage/mainpage.html" target="body"><li>홈</li></a>
+                <a href="../Search_window+css/search_window.html" target="body"><li>검색</li></a>
+                <a href="../login/login.html" target="body"><li>로그인</li></a>
+                <a href="../signup/signup.html" target="body"><li style="color:#444444">회원가입</li></a>
+            </ul>
+
+    </nav>
+</header>
+</body>

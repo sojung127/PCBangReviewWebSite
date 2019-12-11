@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>Bob's Auto Parts - Order Results</title>
 	<link rel="stylesheet" href="mainpagecss.css"> 
-	<link rel="stylesheet" href="..\MenuBar.css">
+	<link rel="stylesheet" href="../menubar/MenuBar.css">
 
 	<script type ="text/javascript" src = "mainpagescript.js"></script>
 </head> 
@@ -12,7 +12,7 @@
 <body> 
 <?php
 	@session_start();
-	
+	$_SESSION['prevPage']=$_SERVER['REQUEST_URI'];
 	if(isset($_SESSION['login'])){
 		header('Location:mainpage_login.html');
 	}
@@ -23,12 +23,12 @@
 		<div class="wrap">
 			<div class="menubar">
 				<ul class="menuLogo">
-					<li><a href="../reviewWrite.html">리뷰하기</a></li>
+					<li><a href="../review/reviewWrite.html">리뷰하기</a></li>
 					<li><a href="#">대회정보</a></li>
 				</ul>
 				<ul class="menuItem">
-					<li><a href="../signup.html">회원가입</a></li>
-					<li><a href="../login.html">로그인</a></li>
+					<li><a href="../singup/signup.html">회원가입</a></li>
+					<li><a href="../login/ogin.html">로그인</a></li>
 				</ul>
 			</div>
 		</div>
