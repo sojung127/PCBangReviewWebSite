@@ -9,13 +9,13 @@
 
 </head>
 <body>
-        <?php
-        @session_start();
-    
-        if(isset($_SESSION['login'])){
-            header('Location: MenuBar_login.html');
-        }
-        ?>
+    <?php
+    @session_start();
+
+    if(!isset($_SESSION['login'])){
+        header('Location:../login.html');
+    }
+    ?>
 <header>
     <nav id="main_menu">
 
@@ -25,8 +25,8 @@
 
                 <a href="mainpage\mainpage.html"><li>홈</li></a>
                 <a href="Search_window+css\search_window.html"><li>검색</li></a>
-                <a href="login.html"><li>로그인</li></a>
-                <a href="signup.html"><li style="color:#444444">회원가입</li></a>
+                <a href="MyInfo/myinfochange.html"><li>내 정보</li></a>
+                <a href="logout.php"><li style="color:#444444">로그아웃</li></a>
             </ul>
 
     </nav>

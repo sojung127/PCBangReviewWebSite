@@ -6,8 +6,9 @@
     <title>Login</title>
 </head>
 <body>
-    <?php
-        @session_start();
+    <?php    
+    @session_start();
+    $_SESSION['prevPage']=$_SERVER['HTTP_REFERER'];
         if(isset($_SESSION["login"])){
             header('Location: mainpage/mainpage_login.html');
         }

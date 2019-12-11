@@ -7,7 +7,7 @@
     if (checkUser($user, $pass)) {
             $_SESSION["login"] = $user;
             $_SESSION["begin"] = date("F j, Y, g:i:s a");
-            header("Location: mainpage/mainpage_login.html");
+            header("Location: ".$_SESSION['prevPage']);
         } else {
             header("Location: login.html");
         }
