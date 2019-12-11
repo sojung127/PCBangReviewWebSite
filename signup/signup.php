@@ -31,7 +31,7 @@ $stmt->execute();
 
 if($stmt->affected_rows > 0){
     echo "<p>User inserted into the databases.</p>";
-    echo "<script>location.href='../login/login.html';</script>";
+    echo "<script>location.href='../login/loginFrame.html';</script>";
 }else{
     echo "<p>insert error</p>";
 }

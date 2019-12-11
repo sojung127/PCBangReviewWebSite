@@ -9,7 +9,7 @@
             $_SESSION["begin"] = date("F j, Y, g:i:s a");
             header("Location: ".$_SESSION['prevPage']);
         } else {
-            header("Location: login.html");
+            header("Location: loginFrame.html");
         }
     
 function check_param($var) {
