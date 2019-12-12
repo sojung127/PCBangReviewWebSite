@@ -28,7 +28,7 @@ if(@$_POST['pf3']=='pf3')
     $pf3 = 1;
 
 
-@$db = new mysqli('0.tcp.ngrok.io:11808','root','1234','pcreview');
+@$db = new mysqli('0.tcp.ngrok.io:10231','root','1234','pcreview');
 if(mysqli_connect_errno()){
     echo 'error try again later';
     exit;
@@ -61,7 +61,7 @@ if($stmt->affected_rows > 0){
     
     while($data = mysqli_fetch_array($result)){
         echo $data;
-        echo '<img src='.$data["image"].'width=200>';
+        echo '<img src="'.$data["image"].'"width=200>';
     }
     //echo "<script target='body'>location.href='../mainpage/mainpage.html';</script>";
 }else{
