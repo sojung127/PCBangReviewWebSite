@@ -1,145 +1,116 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<link rel="stylesheet" href="style.css" type="text/css">
-		
-		<script type="text/javascript">
-			function mapclick(){
-			mapWin = window.open('map.html', '', 'width=800, height=600');
-			}
-		</script>
-		<title>Search Menu</title>
-	</head>
-	<body>
-		
-		<!-- <nav id="main_menu">
-			<image id="menu_logo" src="logo.png" width="100" height="75" alt="">
-			<ul id="menu_tab">
-				<a href="..\mainpage\mainpage.html"><li>홈</li></a>
-				<a href="#"><li>검색</li></a>
-				<a href="..\MyInfo\myinfochange.html"><li>내정보</li></a>
-				<a href=""><li>로그아웃</li></a>
+  <head>
+    <title>지도로 찾기</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
 
-			</ul>
-		</nav> -->
-		<div id="search_menu">
-				<table border="0px">
-				<tr>
-					<td class="search_type">이름</td>
-					<td class="search_input"><span class="text_window"><input type="text" class="input_text"></span></td>
-					<td class="search_button" onclick="mapclick()"><botton>지도로 찾기</botton></td>
-				</tr>
-				<tr>
-					<td class="search_type">지역필터</td>
-					<td class="search_input" colspan="2">
-						<input type="checkbox">서울
-						<input type="checkbox">경기
-						<input type="checkbox">인천
-						<input type="checkbox">강원
-						<input type="checkbox">대전
-						<input type="checkbox">충남
-						<input type="checkbox">충북
- 						<input type="checkbox">광주
-
-						<label for="toggle_button" class="toggle_button">▼</label>
-						<input type="checkbox" id="toggle_button">
-						<div id="toggle_contents">
- 						<input type="checkbox">부산
-						<input type="checkbox">울산
-						<input type="checkbox">경남
-						<input type="checkbox">경북
-						<input type="checkbox">전남
-						<input type="checkbox">전북
- 						<input type="checkbox">대구
-						<input type="checkbox">제주
-						</div>
-
-					</td>
-				</tr>
-				<tr>
-					<td class="search_type">세부조건</td>
-					<td class="search_input"><input type="Checkbox"/>Steam <input type="Checkbox"/>오리진 <input type="Checkbox"/>블리자드</td>
-					<td class="search_button"><botton>검색</botton></td>
-				</tr>
-				</table>
-				
-
-			</section>
-		</div>
-
-		<div id="review_list">
-			<table id="review_table">
-				<tr>
-					<td rowspan="2"></td>
-					<td>
-						<p>
-						<h1>어떤 피시방</h1>
-							<table style="border:1px solid black;" >
-								<tr>
-									<td rowspan="4">
-										<img src="http://image.itdonga.com/files/2016/12/08/004.JPG" width="300" height="200">
-									</td>
-									<td>
-										
-											<input type="button" value="☆" class="star" >
-											<input type="button" value="☆" class="star" >
-											<input type="button" value="☆" class="star" >
-											<input type="button" value="☆" class="star" >
-											<input type="button" value="☆" class="star" ></td>								</tr>
-								<tr>
-									<td>
-										<p>서울시 어느구 어느동 1234-5678</p>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<p>수강신청 실패함, 더러움, 최악</p>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<p>#Steam #블리자드</p>
-									</td>
-								</tr>
-							</table>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<p>
-						<h1>이화 피시방</h1>
-							<table style="border:1px solid black;" >
-								<tr>
-									<td rowspan="4">
-										<img src="http://image.itdonga.com/files/2016/12/08/004.JPG" width="300" height="200">
-									</td>
-									<td>
-											<input type="button" value="☆" class="star" >
-											<input type="button" value="☆" class="star" >
-											<input type="button" value="☆" class="star" >
-											<input type="button" value="☆" class="star" >
-											<input type="button" value="☆" class="star" ></td>								</tr>
-								<tr>
-									<td>
-										<p>서울시 어느구 어느동 1234-5678</p>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<p>수강신청 성공함, 깨끗함, 기타등등 좋음</p>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<p>#Steam #블리자드 #오리진</p>
-									</td>
-								</tr>
-							</table>
-					</td>
-				</tr>
-			</table>
-		</div>
-
-	</body>
-<html>
+    <div id="map"></div>
+   <script>
+      var customLabel = {
+        restaurant: {
+          label: 'R'
+        },
+        bar: {
+          label: 'B'
+        }
+      };
+        function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: new google.maps.LatLng(37.55, 126.95),
+          zoom: 16
+        });
+        var infoWindow = new google.maps.InfoWindow;
+          // Change this depending on the name of your PHP or XML file 
+		// 이 부분에서는 mapXML.xml 파일 경로만 분리..?라고해야하나 절대경로로 맞추면 될 것 
+          downloadUrl('http://localhost/mapXML.xml', function(data) {
+            var xml = data.responseXML;
+            var markers = xml.documentElement.getElementsByTagName('marker');
+            Array.prototype.forEach.call(markers, function(markerElem) {
+              var name = markerElem.getAttribute('name');
+              var address = markerElem.getAttribute('address');
+              var type = 'resstaurant';
+              var point = new google.maps.LatLng(
+                  parseFloat(markerElem.getAttribute('lat')),
+                  parseFloat(markerElem.getAttribute('lng')));
+              var infowincontent = document.createElement('div');
+              var strong = document.createElement('strong');
+              strong.textContent = name
+              infowincontent.appendChild(strong);
+              infowincontent.appendChild(document.createElement('br'));
+              var text = document.createElement('text');
+              text.textContent = address
+              infowincontent.appendChild(text);
+              var icon = customLabel[type] || {};
+              var marker = new google.maps.Marker({
+                map: map,
+                position: point,
+                label: icon.label
+              });
+              marker.addListener('click', function() {
+                infoWindow.setContent(infowincontent);
+                infoWindow.open(map, marker);
+              });
+            });
+          });
+	// Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('현재 위치');
+            infoWindow.open(map);
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+        }
+      function downloadUrl(url, callback) {
+        var request = window.ActiveXObject ?
+            new ActiveXObject('Microsoft.XMLHTTP') :
+            new XMLHttpRequest;
+        request.onreadystatechange = function() {
+          if (request.readyState == 4) {
+            request.onreadystatechange = doNothing;
+            callback(request, request.status);
+          }
+        };
+        request.open('GET', url, true);
+        request.send(null);
+      }
+	function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        	infoWindow.setPosition(pos);
+	        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        	infoWindow.open(map);
+      	}
+      function doNothing() {}
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDx0I7Tf0xLFPRiGk3wN5IsJMvLhsXUApg&callback=initMap">
+    </script>
+  </body>
+</html>
