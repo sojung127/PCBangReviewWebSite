@@ -8,8 +8,9 @@
 <title> PC </title>
 
 </head>
-
+  
 <body>
+<div id="bodyid">
 <script type="text/javascript" src="PCInfo.js"></script>
 
 <div class ="wrapper">
@@ -23,11 +24,25 @@
     $mysql_user = 'root';
     $mysql_password = '1234';
     $mysql_db = 'pcreview';
-    $db = new mysqli($mysql_host,$mysql_user,$mysql_password,$mysql_db);
+    $db = new mysqli($mysql_host, $mysql_user, $mysql_password, $mysql_db);
     if(mysqli_connect_errno()){
         echo 'error try again later';
         exit;
     }
+	
+	//사양
+	$pcbinfosql = 'SELECT pcbimage, pcbname, address, cpu, mem, grpcard FROM pcbinfo';
+	$pcbinforesult = mysqli_query($pcbinfosql);	
+	
+	//사양 보여주기
+	while($row = mysqli_fetch_array($pcbinforesult)) {
+        echo 
+		$row['pcbname']  
+        .$row['address']
+        .$row['cpu'] 
+		.$row['mem'] 
+		.$row['grpcard'];
+    } 
 
     //별점순		
 	$starsql = 'SELECT reviewer, r1, r2, r3, star FROM pcbreview INNER JOIN pcbinfo ON pcbreview.pcbnum=pcbinfo.pcbnum ORDER BY star DESC';
@@ -39,20 +54,20 @@
 					ON pcbreview.pcbnum=pcbinfo.pcbnum
 					ORDER BY reviewNUM DESC';
     $reviewnumresult = mysqli_query($db,$reviewnumsql);
+	mysqli_close($db);
 	
-	while($row = mysqli_fetch_array($starresult)) {
-        echo '<p>' 
-		.$row['reviewer']  
-        .$row['r1']
-        .$row['r2'] 
-		.$row['r3'] 
-		.$row['star'].'</p>';
-    } 
 
 ?>
 </div>
+<aside>
+ <form>
+  <button class ="default" onclick ="popseat();">간편 좌석 확인</button>
+ </form>
+ <form>
+  <button class ="default" onclick ="popmenu();">음식 메뉴 확인</button>
+ </form>
+</aside>
 
-</div>
 
 <div id = "reviews">
 <div id ="prev">
@@ -62,17 +77,15 @@
 <div id = "buttons">
 
 <div id ="butsoon">
-<select id ="butdef" name ="selrev" <!--onchange="showreview(this.form)"-->> 
+
+<select id ="butdef" name ="selrev" onchange="showreview"> 
  <option value=1> 최신순 </option>
-	<name="" >
  <option value=2> 별점순 </option>
 </select>
 </div>
 
 <div id="butreview">
- 
   <a href="..\reviewWrite.html"> <button class = "default"> 리뷰 작성 </button></a>
- 
 </div>
 
 </div>	<!-- buttons -->
@@ -82,21 +95,23 @@
 function showreview(){
 	var found = null;
 	var sel = document.getElementById("butdef");
-	var rev = document.getElementById("review");
+	var rev = document.getElementById("showrev");
 	for(var i=0; i<sel.length;i++){
 		if(sel[i].selected==true){
 			found =sel[i];
 			break;
 		}
 	}
-	rev.src = found.value;
+	rev.value = found.value;
 
 }
 
-</script>
 
-<div class ="review">
+</script>
 <!--
+<div class ="review">
+
+
 <strong> 감자사랑 </strong>
 <strong style="font-size: larger; color: rgb(255, 217, 0); float: right;">★★★★★</strong>
 
@@ -111,8 +126,32 @@ function showreview(){
 -->
 
 
-<form action ="" method="post">
+<!--<form action ="" method="post">-->
 <div class ="review">
+
+<?
+	echo<table id="showrev">
+	//별점순 보여주기
+
+	while($row = mysqli_fetch_array($starresult)) {
+        echo  "
+		$row['reviewer']
+		<span class="star-rating">
+		<span style ="width: $row['star']*10%"></span>
+		</span>
+		<p>
+        $row['r1']
+		</p>
+		<p>
+        $row['r2'] 
+		</p>
+		<p>
+		$row['r3'] 
+		</p>";
+    } 
+	</table>
+?>
+</div>
 <!--
 <input type="text" name="nickname">
 <input type="text" name="star" style="font-size: larger; color: rgb(255, 217, 0); float: right;">
@@ -121,19 +160,20 @@ function showreview(){
 <!--
 <p class ="ps"> 짜파게티 맛집입니다. 컴퓨터랑 책상, 의자도 깔끔한 편이네요.</p>
 -->
-</div>
+
 
 <div class ="review">
 <strong> 올클기원 </strong>
 <strong style="font-size: larger; color: rgb(255, 217, 0); float: right;">★★★★★</strong>
 <p class ="ps">수강신청 성공했는데 수강신청 날 사람이 많음. 촉박하면 딴데 ㄱㄱ </p>
 </div>
-</form>
+<!--</form>-->
 </div>	<!-- reviews -->
 
 </div>	<!-- content -->
 
 </div> <!-- wrapper -->
 
+</div> <!--bodyid-->
 </body>
 </html>
