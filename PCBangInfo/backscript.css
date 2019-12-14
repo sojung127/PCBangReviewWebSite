@@ -1,5 +1,17 @@
+
 .default  {
-   background-color: #5F5C5C
+   color: white;
+}
+
+#butdef{
+	color: white;
+}
+
+select{
+	background-color: #444444;
+	border-radius:3px;
+	border:none;
+	outline: none;
 }
 
 /* #infomenu {
@@ -10,15 +22,17 @@ text-align: center;
 } */
 
 body {
-background-image: url( 'webback.png' );
-background-size: auto;
+	padding-left:250px;
+	margin: 0px;
+	background-image: url( 'webback.png' );
+	background-size: auto;
 }
 
 img {
 	width: 300px;
 }
 /* 
-#main_menu { background-image : url('캡처.png'); /*url 안에 들어가는 것은 상단바 배경 이미지 파일명*/
+#main_menu { background-image : url('캡처.png'); //url 안에 들어가는 것은 상단바 배경 이미지 파일명
 	padding:10px;
 	list-style:none;
 	}
@@ -34,30 +48,30 @@ img {
 } */
 
 #wrapper{
-	position: absolute;
+	position: relative;
 	margin: 0 auto;
 }
 .content{
-width: 800px;
+width: 1000px;
 float: left;
 position:relative;
 
 }
 
 #main_section  {
-	width: 300px;
-float: left;
+	/*width: 700px;*/
+	float: left;
 
 }
 
 #main_article{
-width: 560px;
+/*width: 760px;*/
 position: relative;
 
 }
 
 #reviewme{
-width : 800px;
+/*width : 800px;*/
 text-align: left;
 clear : both;
 }
@@ -74,7 +88,7 @@ clear : both;
 	
 	
 #reviews{
-            width:800px;    
+            width:1000px;    
             text-align: left;
             float:left;
         }
@@ -105,7 +119,7 @@ clear : both;
 }
 
 #buttons > #butsoon{
-	width: 50px;
+	/*width: 50px;*/
 	float: right;
 	
 }
@@ -113,6 +127,13 @@ clear : both;
 #buttons > #butreview{
 	width: 80px;
 	float: right;
+}
+
+#butreview button{
+	background-color: #444444;
+	border-radius:3px;
+	border:none;
+	outline: none;
 }
 
 
