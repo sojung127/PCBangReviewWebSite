@@ -14,14 +14,15 @@ select{
 	outline: none;
 }
 
-/* #infomenu {
+#infomenu {
 background-color: rgb(95,92,92);
 width: 400px;
 text-align: center;
+color: white;
 
-} */
+} 
 
-body {
+#bodyid {
 	padding-left:250px;
 	margin: 0px;
 	background-image: url( 'webback.png' );
@@ -129,7 +130,7 @@ clear : both;
 	float: right;
 }
 
-#butreview button{
+button{
 	background-color: #444444;
 	border-radius:3px;
 	border:none;
@@ -145,7 +146,7 @@ float:right;
 }
 
 #text_menu {
-color: rgb(255,255,255);
+color: white;
 width: 800px;
 margin: 0 auto;
 margin-bottom: 10px;
@@ -159,10 +160,10 @@ text-align: left;
 #seat{
 	background-color: rgb(95,92,92);
 	text-align:center;
-	height: 150px;
+	height: 100px;
 	width: 400px;
 }
 
 #textseat{
-	color: rgb(255,255,255);
+	color: white;
 }
