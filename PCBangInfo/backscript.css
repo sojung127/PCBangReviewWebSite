@@ -14,6 +14,23 @@ select{
 	outline: none;
 }
 
+.star-rating {
+	width:170px; 
+}   /*별이미지크기*/
+
+.star-rating,.star-rating span {
+	display:inline-block; 
+	height:19px; 
+	overflow:hidden; 
+	background:url('star.png')no-repeat; 
+	} /*두개의 span에 동시에 주는 효과들*/
+
+.star-rating span{
+	background-position:left bottom; 
+	line-height:0; 
+	vertical-align:top; 
+	} /*안쪽 span에만 적용*/
+
 #infomenu {
 background-color: rgb(95,92,92);
 width: 400px;
