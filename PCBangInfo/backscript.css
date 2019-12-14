@@ -1,147 +1,149 @@
 .default  {
-   background-color: #5F5C5C
-}
-
-/* #infomenu {
-background-color: rgb(95,92,92);
-width: 400px;
-text-align: center;
-
-} */
-
-body {
-background-image: url( 'webback.png' );
-background-size: auto;
-}
-
-img {
-	width: 300px;
-}
-/* 
-#main_menu { background-image : url('캡처.png'); /*url 안에 들어가는 것은 상단바 배경 이미지 파일명*/
-	padding:10px;
-	list-style:none;
-	}
-#main_menu ul {float:right }
-#main_menu li {
-	display:inline-block;
-	list-style:none;
-	color:white;
-	padding:10px 0 0 10px;
-	font: bold 24px san-serif;
-	}
-#main_menu li:hover{color:#000000;
-} */
-
-#wrapper{
-	position: absolute;
-	margin: 0 auto;
-}
-.content{
-width: 800px;
-float: left;
-position:relative;
-
-}
-
-#main_section  {
-	width: 300px;
-float: left;
-
-}
-
-#main_article{
-width: 560px;
-position: relative;
-
-}
-
-#reviewme{
-width : 800px;
-text-align: left;
-clear : both;
-}
-
-#main_article > #info{
-	text-align:left;
-	float: right;
-	
-}
-
-#info > #side_aside{
-	float: right;
-	}
-	
-	
-#reviews{
-            width:800px;    
-            text-align: left;
-            float:left;
-        }
-        
-        .review{
-            background-color: white;
-            border: thick solid #818181;
-            border-radius:10px;
-            padding:10px 10px 10px 30px;
-            margin-top:20px;
-        }
-        p{
-            padding-bottom:10px;
-            border-bottom: 5px solid #818181;
-        }
-
-
-	
-
-
-#prev > #buttons{
-	width: 800px;
-	float: right;
-	position: relative;
-	clear: both;
-	right: 20px;
-	bottom: 30px;
-}
-
-#buttons > #butsoon{
-	width: 50px;
-	float: right;
-	
-}
-
-#buttons > #butreview{
-	width: 80px;
-	float: right;
-}
-
-
-#but {
-background-color: rgb(255,255,255);
-border-radius: 15px;
-vertical-align: text-top;
-float:right;
-}
-
-#text_menu {
-color: rgb(255,255,255);
-width: 800px;
-margin: 0 auto;
-margin-bottom: 10px;
-text-align: left;
-}
-
-#goright{
-	float: top;
-}
-
-#seat{
-	background-color: rgb(95,92,92);
-	text-align:center;
-	height: 150px;
-	width: 400px;
-}
-
-#textseat{
-	color: rgb(255,255,255);
-}
+	background-color: #5F5C5C
+ }
+ 
+ /* #infomenu {
+ background-color: rgb(95,92,92);
+ width: 400px;
+ text-align: center;
+ 
+ } */
+ 
+ body {
+	 padding-left:250px;
+	 margin: 0px;
+ background-image: url( 'webback.png' );
+ background-size: auto;
+ }
+ 
+ img {
+	 width: 300px;
+ }
+ /* 
+ #main_menu { background-image : url('캡처.png'); //url 안에 들어가는 것은 상단바 배경 이미지 파일명
+	 padding:10px;
+	 list-style:none;
+	 }
+ #main_menu ul {float:right }
+ #main_menu li {
+	 display:inline-block;
+	 list-style:none;
+	 color:white;
+	 padding:10px 0 0 10px;
+	 font: bold 24px san-serif;
+	 }
+ #main_menu li:hover{color:#000000;
+ } */
+ 
+ #wrapper{
+	 position: relative;
+	 margin: 0 auto;
+ }
+ .content{
+ width: 1000px;
+ float: left;
+ position:relative;
+ 
+ }
+ 
+ #main_section  {
+	 /*width: 700px;*/
+	 float: left;
+ 
+ }
+ 
+ #main_article{
+ /*width: 760px;*/
+ position: relative;
+ 
+ }
+ 
+ #reviewme{
+ /*width : 800px;*/
+ text-align: left;
+ clear : both;
+ }
+ 
+ #main_article > #info{
+	 text-align:left;
+	 float: right;
+	 
+ }
+ 
+ #info > #side_aside{
+	 float: right;
+	 }
+	 
+	 
+ #reviews{
+			 width:1000px;    
+			 text-align: left;
+			 float:left;
+		 }
+		 
+		 .review{
+			 background-color: white;
+			 border: thick solid #818181;
+			 border-radius:10px;
+			 padding:10px 10px 10px 30px;
+			 margin-top:20px;
+		 }
+		 p{
+			 padding-bottom:10px;
+			 border-bottom: 5px solid #818181;
+		 }
+ 
+ 
+	 
+ 
+ 
+ #prev > #buttons{
+	 width: 800px;
+	 float: right;
+	 position: relative;
+	 clear: both;
+	 right: 20px;
+	 bottom: 30px;
+ }
+ 
+ #buttons > #butsoon{
+	 width: 50px;
+	 float: right;
+	 
+ }
+ 
+ #buttons > #butreview{
+	 width: 80px;
+	 float: right;
+ }
+ 
+ 
+ #but {
+ background-color: rgb(255,255,255);
+ border-radius: 15px;
+ vertical-align: text-top;
+ float:right;
+ }
+ 
+ #text_menu {
+ color: rgb(255,255,255);
+ width: 800px;
+ margin: 0 auto;
+ margin-bottom: 10px;
+ text-align: left;
+ }
+ 
+ #goright{
+	 float: top;
+ }
+ 
+ #seat{
+	 background-color: rgb(95,92,92);
+	 text-align:center;
+	 height: 150px;
+	 width: 400px;
+ }
+ 
+ #textseat{
+	 color: rgb(255,255,255);
+ }
