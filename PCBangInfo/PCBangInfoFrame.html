@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>PC방 리뷰 사이트</title>
+    <?php
+        @session_start();
+        $_SESSION['prevPage']=$_SERVER['REQUEST_URI'];
+        
+    ?>
+
+</head>
+     <frameset frameborder="0" rows="95,*">
+        <frame src="../menubar/MenuBar.html" >
+        <frame src="PCBangInfo.html">
+     </frameset>
+</html>
