@@ -1,0 +1,27 @@
+#page_num {
+	text-align:center;
+	padding:10px;
+	list-style:none;
+	margin-top:30px; 
+}
+#page_num ul {
+	float: center;
+}
+#page_num li {
+	display:inline-block;
+	list-style:none;
+	padding:10px 0 0 10px;
+	margin-left: 10px; 
+	text-align: center;
+}
+.fo_re {
+	font-weight: bold;
+	color:red;
+}
+thead {
+	background-color : #585858;
+	color : white;
+}
+#write_btn {
+	text-align: center;
+}
