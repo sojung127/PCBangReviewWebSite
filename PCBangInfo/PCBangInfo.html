@@ -20,7 +20,8 @@
 <div id ="main_article">
 
 <?php
-	$mysql_host = '0.tcp.ngrok.io:10231';
+
+$mysql_host = '0.tcp.ngrok.io:17235';
     $mysql_user = 'root';
     $mysql_password = '1234';
     $mysql_db = 'pcreview';
@@ -52,6 +53,68 @@
 		.$row['star'].'</p>';
     } 
 
+//	$mysql_host = '0.tcp.ngrok.io:13456';
+//    $mysql_user = 'root';
+//    $mysql_password = '1234';
+//    $mysql_db = 'pcreview';
+//    $db = new mysqli($mysql_host,$mysql_user,$mysql_password,$mysql_db);
+//    if(mysqli_connect_errno()){
+//        echo 'error try again later';
+//        exit;
+//    }
+//    $PCBNUM=1;
+//    @session_start();
+//    if(isset($_SESSION['login']) && $_SESSION['RECENT REVIEW']==1){
+//        // 사용자의 고유번호 찾는 쿼리
+//        $_SESSION['RECENT_REVIEW']=0;
+//        $userquery = 'select usernum from USERINFO where id=?';
+//        $stmt =  $db->prepare($userquery);
+//        $USER=$_SESSION['login'];
+//        $stmt->bind_param('s',$USER);
+//        $stmt->execute();
+//        $result = $stmt->get_result()->fetch_assoc();
+//        $usernum=$result['usernum'];
+//        //피씨방 번호를 찾는 쿼리
+//        $pcbquery = 'select pcbnum from pcbreview where reviewnum=(
+//            select max(reviewnum) from pcbreview where reviewer = ?);';
+//        $stmt=$db->prepare($pcbquery);
+//        $stmt->bind_param('i',$usernum);
+//        $stmt->execute();
+//        $result = $stmt->get_result()->fetch_assoc();
+//        $PCBNUM=$result['pcbnum'];
+//
+//
+//    }
+//
+//
+//    //별점순		
+//    $starsql = 'SELECT reviewer, r1, r2, r3, star, image FROM pcbreview where pcbnum=? ORDER BY star DESC';
+//    $stmt=$db->prepare($starsql);
+//        $stmt->bind_param('i',$PCBNUM);
+//        $stmt->execute();
+//        $starresult = $stmt->get_result()->fetch_assoc();
+//			
+//	//최신순
+//	$reviewnumsql = 'SELECT reviewer, r1, r2, r3, star 
+//					FROM pcbreview INNER JOIN pcbinfo 
+//					ON pcbreview.pcbnum=pcbinfo.pcbnum
+//					ORDER BY reviewNUM DESC';
+//    $reviewnumresult = mysqli_query($db,$reviewnumsql);
+//    
+//    echo $PCBNUM;
+//
+//
+//	 while($row = $starresult) {
+//        echo '<p>' 
+//		.$row['reviewer']  
+//        .$row['r1']
+//        .$row['r2'] 
+//		.$row['r3'] 
+//        .$row['star'].
+//        '<img src="'.$row['image'].'"width = 200></p>';
+//    } 
+
+  
 ?>
 </div>
 
