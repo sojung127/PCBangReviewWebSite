@@ -1,23 +1,14 @@
 <!DOCTYPE html>
-<link rel = "stylesheet" href = "backscript.css">
-<link rel = "stylesheet" href = "../review/review.css">
+<link rel="stylesheet" href="backscript.css">
+<link rel="stylesheet" href="../review/review.css">
 <link rel="stylesheet" href="../menubar/MenuBar.css">
 <link rel="stylesheet" href="<?php echo G5_CSS_URL?>/backscript.css">
+
 <head>
- <meta charset="UTF-8">
-<title> PC </title>
+    <meta charset="UTF-8">
+    <title> PC </title>
 
 </head>
-
-<body>
-<script type="text/javascript" src="PCInfo.js"></script>
-
-
-<div class ="wrapper">
-<h1> 아좌 PC방 </h1>
-
-<div class ="content">
-<div id ="main_article">
 
 <?php
 
@@ -44,127 +35,97 @@ $mysql_host = '0.tcp.ngrok.io:17235';
 					ORDER BY reviewNUM DESC';
     $reviewnumresult = mysqli_query($db,$reviewnumsql);
 	
-	while($row = mysqli_fetch_array($starresult)) {
-        echo '<p>' 
-		.$row['reviewer']  
-        .$row['r1']
-        .$row['r2'] 
-		.$row['r3'] 
-		.$row['star'].'</p>';
-    } 
 
-//	$mysql_host = '0.tcp.ngrok.io:13456';
-//    $mysql_user = 'root';
-//    $mysql_password = '1234';
-//    $mysql_db = 'pcreview';
-//    $db = new mysqli($mysql_host,$mysql_user,$mysql_password,$mysql_db);
-//    if(mysqli_connect_errno()){
-//        echo 'error try again later';
-//        exit;
-//    }
-//    $PCBNUM=1;
-//    @session_start();
-//    if(isset($_SESSION['login']) && $_SESSION['RECENT REVIEW']==1){
-//        // 사용자의 고유번호 찾는 쿼리
-//        $_SESSION['RECENT_REVIEW']=0;
-//        $userquery = 'select usernum from USERINFO where id=?';
-//        $stmt =  $db->prepare($userquery);
-//        $USER=$_SESSION['login'];
-//        $stmt->bind_param('s',$USER);
-//        $stmt->execute();
-//        $result = $stmt->get_result()->fetch_assoc();
-//        $usernum=$result['usernum'];
-//        //피씨방 번호를 찾는 쿼리
-//        $pcbquery = 'select pcbnum from pcbreview where reviewnum=(
-//            select max(reviewnum) from pcbreview where reviewer = ?);';
-//        $stmt=$db->prepare($pcbquery);
-//        $stmt->bind_param('i',$usernum);
-//        $stmt->execute();
-//        $result = $stmt->get_result()->fetch_assoc();
-//        $PCBNUM=$result['pcbnum'];
-//
-//
-//    }
-//
-//
-//    //별점순		
-//    $starsql = 'SELECT reviewer, r1, r2, r3, star, image FROM pcbreview where pcbnum=? ORDER BY star DESC';
-//    $stmt=$db->prepare($starsql);
-//        $stmt->bind_param('i',$PCBNUM);
-//        $stmt->execute();
-//        $starresult = $stmt->get_result()->fetch_assoc();
-//			
-//	//최신순
-//	$reviewnumsql = 'SELECT reviewer, r1, r2, r3, star 
-//					FROM pcbreview INNER JOIN pcbinfo 
-//					ON pcbreview.pcbnum=pcbinfo.pcbnum
-//					ORDER BY reviewNUM DESC';
-//    $reviewnumresult = mysqli_query($db,$reviewnumsql);
-//    
-//    echo $PCBNUM;
-//
-//
-//	 while($row = $starresult) {
-//        echo '<p>' 
-//		.$row['reviewer']  
-//        .$row['r1']
-//        .$row['r2'] 
-//		.$row['r3'] 
-//        .$row['star'].
-//        '<img src="'.$row['image'].'"width = 200></p>';
-//    } 
+    $PCBNUM=1;
+    @session_start();
+    if(isset($_SESSION['login']) && $_SESSION['RECENT REVIEW']==1){
+        // 사용자의 고유번호 찾는 쿼리
+        $_SESSION['RECENT_REVIEW']=0;
+        $userquery = 'select usernum from USERINFO where id=?';
+        $stmt =  $db->prepare($userquery);
+        $USER=$_SESSION['login'];
+        $stmt->bind_param('s',$USER);
+        $stmt->execute();
+        $result = $stmt->get_result()->fetch_assoc();
+        $usernum=$result['usernum'];
+        //피씨방 번호를 찾는 쿼리
+        $pcbquery = 'select pcbnum from pcbreview where reviewnum=(
+            select max(reviewnum) from pcbreview where reviewer = ?);';
+        $stmt=$db->prepare($pcbquery);
+        $stmt->bind_param('i',$usernum);
+        $stmt->execute();
+        $result = $stmt->get_result()->fetch_assoc();
+        $PCBNUM=$result['pcbnum'];
+
+
+    }
+    
+    echo $PCBNUM;
+
+
+
 
   
 ?>
-</div>
-
-</div>
-
-<div id = "reviews">
-<div id ="prev">
-<h2>리뷰</h2>
+<body>
+    <script type="text/javascript" src="PCInfo.js"></script>
 
 
-<div id = "buttons">
+    <div class="wrapper">
+        <h1> 아좌 PC방 </h1>
 
-<div id ="butsoon">
-<select id ="default" name ="selrev" onchange="showreview(this.form)"> 
- <option value=1> 최신순 </option>
-	<name="" >
- <option value=2> 별점순 </option>
-</select>
-</div>
+        <div class="content">
+            <div id="main_article">
 
-<div id="butreview">
- 
-  <a href="..\reviewWrite.html"> <button class = "default"> 리뷰 작성 </button></a>
- 
-</div>
+            </div>
 
-</div>	<!-- buttons -->
-</div> <!-- prev -->
+        </div>
 
-<script>
-function showreview(){
-	var x = frm.selrev.selectedIndex;
-	switch(x){
-		case 0:
-		frm.x.value='';
-		case 1:
-		
-	
-	}
-	$selbut= $(this);
-	$.each(eval(area0), function () {
-            $reviewstar.append(<?php echo $starresult; ?>);
-        });
-	
-}
+        <div id="reviews">
+            <div id="prev">
+                <h2>리뷰</h2>
 
-</script>
 
-<div class ="review">
-<!--
+                <div id="buttons">
+
+                    <div id="butsoon">
+                        <select id="default" name="selrev" onchange="showreview(this.form)">
+                            <option value=1> 최신순 </option>
+                            <name="">
+                                <option value=2> 별점순 </option>
+                        </select>
+                    </div>
+
+                    <div id="butreview">
+
+                        <a href="..\reviewWrite.html"> <button class="default"> 리뷰 작성 </button></a>
+
+                    </div>
+
+                </div> <!-- buttons -->
+            </div> <!-- prev -->
+
+            <script>
+                function showreview() {
+                    var x = frm.selrev.selectedIndex;
+                    switch (x) {
+                        case 0:
+                            frm.x.value = '';
+                        case 1:
+
+
+                    }
+                    $selbut = $(this);
+                    $.each(eval(area0), function () {
+                        $reviewstar.append();
+                    });
+
+                }
+
+            </script>
+
+            <div class="review">
+                <!--
 <strong> 감자사랑 </strong>
 <strong style="font-size: larger; color: rgb(255, 217, 0); float: right;">★★★★★</strong>
 
@@ -179,29 +140,41 @@ function showreview(){
 -->
 
 
-<form action ="" method="post">
-<div class ="review">
-<!--
+                <form action="" method="post">
+                    <div class="review">
+                        <!--
 <input type="text" name="nickname">
 <input type="text" name="star" style="font-size: larger; color: rgb(255, 217, 0); float: right;">
 -->
 
-<!--
+                        <!--
 <p class ="ps"> 짜파게티 맛집입니다. 컴퓨터랑 책상, 의자도 깔끔한 편이네요.</p>
 -->
-</div>
+                    </div>
 
-<div class ="review">
-<strong> 올클기원 </strong>
-<strong style="font-size: larger; color: rgb(255, 217, 0); float: right;">★★★★★</strong>
-<p class ="ps">수강신청 성공했는데 수강신청 날 사람이 많음. 촉박하면 딴데 ㄱㄱ </p>
-</div>
-</form>
-</div>	<!-- reviews -->
 
-</div>	<!-- content -->
+                    <?php 
+            
+            while($row = mysqli_fetch_array($starresult)) {
+        echo '<div class ="review"><p><b>작성자: </b>' 
+		.$row['reviewer'].'</p><p>'  
+        .$row['r1'].'</p><p>'  
+        .$row['r2'].'</p><p>'  
+		.$row['r3'].'</p><p><b>별점: </b>'  
+		.$row['star'].'</p></div>';
+    } 
+            ?>
+                    <strong> 올클기원 </strong>
+                    <strong style="font-size: larger; color: rgb(255, 217, 0); float: right;">★★★★★</strong>
+                    <p class="ps">수강신청 성공했는데 수강신청 날 사람이 많음. 촉박하면 딴데 ㄱㄱ </p>
+            </div>
+            </form>
+        </div> <!-- reviews -->
 
-</div> <!-- wrapper -->
+    </div> <!-- content -->
+
+    </div> <!-- wrapper -->
 
 </body>
+
 </html>
