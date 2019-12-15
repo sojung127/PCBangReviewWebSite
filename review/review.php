@@ -62,8 +62,14 @@ $stmt->bind_param('isssiiiiiiiis',$usernum,$speed,$clean,$etc,$pf1,$pf2,$pf3,$ga
 $stmt->execute();
 
 if($stmt->affected_rows > 0){
-    
-    echo "<p>User inserted into the databases.</p>";
+    //마일리지 적립
+    $query = "SELECT MILEAGE FROM USERINFO WHERE USERNUM=".$usernum;
+    $result = mysqli_query($db,$query);
+    $row =  mysqli_fetch_assoc($result);
+    $mileage =$row['mileage']+100;
+    $query = "UPDATE USERINFO SET MILEAGE='.$mileage.' WHERE USERNUM=".$usernum;
+    mysqli_query($db,$query);
+    echo "<p>리뷰 등록중입니다. 잠시만 기다려주세요.</p>";
     @session_start();
     $_SESSION['RECENT REVIEW'] = 1;
     echo "<script>location.href='../pcbanginfo/pcbanginfo.html';</script>";  //추후 리뷰 상세 페이지로 이동하도록 수정
