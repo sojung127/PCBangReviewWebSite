@@ -2,4 +2,44 @@
 <markers>
   <marker ID ='1' name ='판도라PC방' address = '서울특별시 서대문구 대현동' lat = '37.5592' lng = '126.944' />
   <marker ID ='2' name ='???? ?ǽù?' address = '????Ư???? ?????? ??ȣ4???? 1091' lat = '37.5484' lng = '127.02' />
+  <marker ID ='3' name ='늑대PC' address = '경기도 부천시' lat = '37.5168' lng = '126.794' />
+  <marker ID ='4' name ='IPCU' address = '경기도 고양시' lat = '37.6896' lng = '126.837' />
+  <marker ID ='5' name ='베토벤PC' address = '대구광역시 북구' lat = '35.9259' lng = '128.598' />
+  <marker ID ='6' name ='행운PC' address = '충청남도 아산시' lat = '36.7884' lng = '126.998' />
+  <marker ID ='7' name ='퀸텀PC' address = '서울특별시 송파구' lat = '37.5041' lng = '127.127' />
+  <marker ID ='8' name ='긱스타PC' address = '경기도 부천시' lat = '37.4871' lng = '126.785' />
+  <marker ID ='9' name ='스카이PC' address = '경기도 안산시' lat = '37.311' lng = '126.845' />
+  <marker ID ='10' name ='초이스PC' address = '경기도 안산시' lat = '37.3313' lng = '126.849' />
+  <marker ID ='11' name ='목포PC' address = '전라남도 목포시' lat = '34.8043' lng = '126.421' />
+  <marker ID ='12' name ='스타덤PC' address = '전라남도 해남군' lat = '34.5721' lng = '126.596' />
+  <marker ID ='13' name ='탑플레이스PC' address = '경상남도 진주시' lat = '35.1849' lng = '128.12' />
+  <marker ID ='14' name ='PC앤카페' address = '경기도 화성시' lat = '37.1354' lng = '126.804' />
+  <marker ID ='15' name ='풍퐁PC' address = '서울특별시 양천구' lat = '37.5188' lng = '126.866' />
+  <marker ID ='16' name ='티파니PC' address = '인천광역시 부평구' lat = '37.4998' lng = '126.732' />
+  <marker ID ='17' name ='나이스PC' address = '광주광역시 광산구' lat = '35.1864' lng = '126.823' />
+  <marker ID ='18' name ='황금붕어PC' address = '울산광역시 울주군' lat = '35.43' lng = '129.332' />
+  <marker ID ='19' name ='황금PC' address = '서울특별시 관악구' lat = '37.488' lng = '126.942' />
+  <marker ID ='20' name ='퀸PC' address = '경기도 용인시' lat = '37.3237' lng = '127.091' />
+  <marker ID ='21' name ='에이스PC' address = '경기도 의정부시' lat = '37.7352' lng = '127.05' />
+  <marker ID ='22' name ='팡팡PC' address = '경기도 평택시' lat = '36.9948' lng = '127.103' />
+  <marker ID ='23' name ='행운PC' address = '경기도 시흥시' lat = '37.345' lng = '126.739' />
+  <marker ID ='24' name ='메이드PC' address = '경기도 군포시' lat = '37.3562' lng = '126.934' />
+  <marker ID ='25' name ='스타덤PC' address = '경기도 용인시' lat = '37.3234' lng = '127.093' />
+  <marker ID ='26' name ='김포PC' address = '경기도 김포시' lat = '37.622' lng = '126.714' />
+  <marker ID ='27' name ='라이또PC' address = '경기도 김포시' lat = '37.6048' lng = '126.722' />
+  <marker ID ='28' name ='바다PC' address = '충청북도 음성군' lat = '36.9134' lng = '127.547' />
+  <marker ID ='29' name ='고래PC' address = '충청남도 천안시' lat = '36.8444' lng = '127.109' />
+  <marker ID ='30' name ='보물섬PC' address = '충청남도 천안시' lat = '36.8207' lng = '127.142' />
+  <marker ID ='31' name ='플래티넘PC' address = '충청남도 천안시' lat = '36.7847' lng = '127.158' />
+  <marker ID ='32' name ='에코스PC' address = '전라북도 전주시' lat = '35.8273' lng = '127.145' />
+  <marker ID ='33' name ='홀릭PC' address = '충청북도 청주시' lat = '36.649' lng = '127.476' />
+  <marker ID ='34' name ='시즌원PC' address = '부산광역시 영도구' lat = '35.0787' lng = '129.066' />
+  <marker ID ='35' name ='피씨팩토리PC' address = '충청남도 천안시' lat = '36.749' lng = '127.256' />
+  <marker ID ='36' name ='더캠프PC' address = '충청남도 천안시' lat = '36.8808' lng = '127.207' />
+  <marker ID ='37' name ='콜PC' address = '전라북도 전주시' lat = '35.8388' lng = '127.169' />
+  <marker ID ='38' name ='땁뜨기PC' address = '세종특별자치시' lat = '36.4819' lng = '127.294' />
+  <marker ID ='39' name ='로또PC' address = '전라북도 전주시' lat = '35.8074' lng = '127.155' />
+  <marker ID ='40' name ='복PC' address = '서울특별시 중랑구' lat = '37.6081' lng = '127.096' />
+  <marker ID ='41' name ='국가대표PC' address = '서울특별시 구로구' lat = '37.4995' lng = '126.886' />
+  <marker ID ='42' name ='욜로PC' address = '부산광역시 남구' lat = '35.1363' lng = '129.097' />
 </markers>
