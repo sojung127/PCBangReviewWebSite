@@ -66,7 +66,8 @@ if($stmt->affected_rows > 0){
     $query = "SELECT MILEAGE FROM USERINFO WHERE USERNUM=".$usernum;
     $result = mysqli_query($db,$query);
     $row =  mysqli_fetch_assoc($result);
-    $mileage =$row['mileage']+100;
+    $mileage =$row['MILEAGE'];
+    $mileage=$mileage+100;
     $query = "UPDATE USERINFO SET MILEAGE='.$mileage.' WHERE USERNUM=".$usernum;
     mysqli_query($db,$query);
     echo "<p>리뷰 등록중입니다. 잠시만 기다려주세요.</p>";
