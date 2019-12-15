@@ -22,10 +22,43 @@
         echo 'error try again later';
         exit;
     }
+
+    
+    $PCBNUM=4;
+    @session_start();   
+
+    if(isset($_SESSION['login']) && isset($_SESSION['RECENT REVIEW'])){
+        // 사용자의 고유번호 찾는 쿼리
+        unset($_SESSION['RECENT REVIEW']);
+        $userquery = 'select usernum from USERINFO where id=?';
+        $stmt =  $db->prepare($userquery);
+        $USER=$_SESSION['login'];
+        $stmt->bind_param('s',$USER);
+        $stmt->execute();
+        $result = $stmt->get_result()->fetch_assoc();
+        $usernum=$result['usernum'];
+        echo $usernum;
+        //피씨방 번호를 찾는 쿼리
+        $pcbquery = 'select pcbnum from pcbreview where reviewnum=(
+            select max(reviewnum) from pcbreview where reviewer = ?);';
+        $stmt=$db->prepare($pcbquery);
+        $stmt->bind_param('i',$usernum);
+        $stmt->execute();
+        $result = $stmt->get_result()->fetch_assoc();
+        $PCBNUM=$result['pcbnum'];
+
+
+    }
+
 	
 	//사양
-	$pcbinfosql = 'SELECT pcbimage, pcbname, address, cpu, mem, grpcard FROM pcbinfo where pcbnum=4';
-	$pcbinforesult = mysqli_query($db,$pcbinfosql);	
+    $pcbinfosql = 'SELECT pcbimage, pcbname, address, cpu, mem, grpcard FROM pcbinfo where pcbnum=?';
+    $stmt =  $db->prepare($pcbinfosql);
+    $stmt->bind_param('i',$PCBNUM);
+    $stmt->execute();
+    
+    
+	$pcbinforesult = $stmt->get_result();
 	
 	
 
@@ -39,7 +72,7 @@
 					ON pcbreview.pcbnum=pcbinfo.pcbnum
 					ORDER BY reviewNUM DESC';
     $reviewnumresult = mysqli_query($db,$reviewnumsql);
-	mysqli_close($db);
+	//mysqli_close($db);
 	
 
     ?>
@@ -60,7 +93,7 @@
                 </aside>
                 <?php
             //사양 보여주기
-	        while($row = mysqli_fetch_array($pcbinforesult)) {
+	        while($row =$pcbinforesult->fetch_assoc()) {
                 echo '<h1>'.
 		            $row['pcbname'].'</h1><img src="'.$row['pcbimage'].'"width = 200 style="margin:10px;"><br>'  
                     .$row['address'].'<br>'

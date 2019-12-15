@@ -45,11 +45,20 @@ $filename = $_FILES['fileToUpload']['name'];
 $imgurl = "../uploads/".$_FILES['fileToUpload']['name'];
 move_uploaded_file($_FILES["fileToUpload"]["tmp_name"],"../uploads/{$_FILES['fileToUpload']['name']}");
 
-$query = "INSERT INTO pcbreview VALUES (null,1,1,?,?,?,?,?,?,?,?,?,?,?,4,?)";
+@session_start();
+$userquery = 'select usernum from USERINFO where id=?';
+$stmt =  $db->prepare($userquery);
+$USER=$_SESSION['login'];
+$stmt->bind_param('s',$USER);
+$stmt->execute();
+$result = $stmt->get_result()->fetch_assoc();
+$usernum=$result['usernum'];
+
+$query = "INSERT INTO pcbreview VALUES (null,5,?,?,?,?,?,?,?,?,?,?,?,?,4,?)";
 $nullVar=null;
 
 $stmt = $db->prepare($query);
-$stmt->bind_param('sssiiiiiiiis',$speed,$clean,$etc,$pf1,$pf2,$pf3,$game1,$game2,$game3,$game4,$game5,$imgurl);
+$stmt->bind_param('isssiiiiiiiis',$usernum,$speed,$clean,$etc,$pf1,$pf2,$pf3,$game1,$game2,$game3,$game4,$game5,$imgurl);
 $stmt->execute();
 
 if($stmt->affected_rows > 0){
@@ -57,7 +66,7 @@ if($stmt->affected_rows > 0){
     echo "<p>User inserted into the databases.</p>";
     @session_start();
     $_SESSION['RECENT REVIEW'] = 1;
-    echo "<script>location.href='../pcbanginfo/pcbanginfoframe.html';</script>";  //추후 리뷰 상세 페이지로 이동하도록 수정
+    echo "<script>location.href='../pcbanginfo/pcbanginfo.html';</script>";  //추후 리뷰 상세 페이지로 이동하도록 수정
     
     //echo "<script target='body'>location.href='../mainpage/mainpage.html';</script>";
 }else{
