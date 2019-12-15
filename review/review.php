@@ -28,7 +28,7 @@ if(@$_POST['pf3']=='pf3')
     $pf3 = 1;
 
 
-@$db = new mysqli('0.tcp.ngrok.io:11808','root','1234','pcreview');
+@$db = new mysqli('0.tcp.ngrok.io:17235','root','1234','pcreview');
 if(mysqli_connect_errno()){
     echo 'error try again later';
     exit;
@@ -36,14 +36,14 @@ if(mysqli_connect_errno()){
 
 // $path="../uploads/".$_FILES['image']['name'];
 
-// $target_dir = '../uploads/';
-// $target_file = $target_dir.basename($_FILES['fileToUpload']['name']);
+$target_dir = '../uploads/';
+$target_file = $target_dir.basename($_FILES["fileToUpload"]["name"]);
 // $uploadOK=1;
 // $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
 $filename = $_FILES['fileToUpload']['name'];
 $imgurl = "../uploads/".$_FILES['fileToUpload']['name'];
-move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
+move_uploaded_file($_FILES["fileToUpload"]["tmp_name"],"../uploads/{$_FILES['fileToUpload']['name']}");
 
 $query = "INSERT INTO pcbreview VALUES (null,1,1,?,?,?,?,?,?,?,?,?,?,?,4,?)";
 $nullVar=null;
@@ -55,14 +55,10 @@ $stmt->execute();
 if($stmt->affected_rows > 0){
     
     echo "<p>User inserted into the databases.</p>";
-    // echo "<script>location.href='reviewWrite.html';</script>";  //추후 리뷰 상세 페이지로 이동하도록 수정
-    $query = "SELECT IMAGE FROM pcbreview where image";
-    $result = mysqli_query($db,$query);
+    @session_start();
+    $_SESSION['RECENT REVIEW'] = 1;
+    echo "<script>location.href='../pcbanginfo/pcbanginfoframe.html';</script>";  //추후 리뷰 상세 페이지로 이동하도록 수정
     
-    while($data = mysqli_fetch_array($result)){
-        echo $data;
-        echo '<img src='.$data["image"].'width=200>';
-    }
     //echo "<script target='body'>location.href='../mainpage/mainpage.html';</script>";
 }else{
     echo "<p>insert error</p>";

@@ -3,9 +3,10 @@
 <link rel = "stylesheet" href = "../review/review.css">
 <link rel="stylesheet" href="../menubar/MenuBar.css">
 <link rel="stylesheet" href="<?php echo G5_CSS_URL?>/backscript.css">
+
 <head>
- <meta charset="UTF-8">
-<title> PC </title>
+    <meta charset="UTF-8">
+    <title> PC </title>
 
 </head>
   
@@ -33,7 +34,7 @@
 	
 	//사양
 	$pcbinfosql = 'SELECT pcbimage, pcbname, address, cpu, mem, grpcard FROM pcbinfo';
-	$pcbinforesult = mysqli_query($pcbinfosql);	
+	$pcbinforesult = mysqli_query($db,$pcbinfosql);	
 	
 	//사양 보여주기
 	while($row = mysqli_fetch_array($pcbinforesult)) {
@@ -70,15 +71,14 @@
 </aside>
 
 
-<div id = "reviews">
-<div id ="prev">
-<h2>리뷰</h2>
+    <div class="wrapper">
+        <h1> 아좌 PC방 </h1>
 
 <script>
 var num = null;
 var star = null;
 
-	num=<?
+	num=<?php
 	//별점순 보여주기
 
 	while($row = mysqli_fetch_array($reviewnumresult)) {
@@ -99,7 +99,7 @@ var star = null;
     } 
 ?>
 	
-	star=<?
+	star=<?php
 	//별점순 보여주기
 
 	while($row = mysqli_fetch_array($starresult)) {
@@ -179,6 +179,9 @@ function showreview(){
 
 <!--<form action ="" method="post">-->
 <!--
+                <form action="" method="post">
+                    <div class="review">
+                        <!--
 <input type="text" name="nickname">
 <input type="text" name="star" style="font-size: larger; color: rgb(255, 217, 0); float: right;">
 -->
@@ -196,10 +199,11 @@ function showreview(){
 <!--</form>-->
 </div>	<!-- reviews -->
 
-</div>	<!-- content -->
+    </div> <!-- content -->
 
-</div> <!-- wrapper -->
+    </div> <!-- wrapper -->
 
 </div> <!--bodyid-->
 </body>
+
 </html>
