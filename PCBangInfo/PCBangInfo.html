@@ -97,7 +97,6 @@ var star = null;
 		$row['r3'] 
 		</p>";
     } 
-	</table>
 ?>
 	
 	star=<?
@@ -140,6 +139,7 @@ var star = null;
 </div>	<!-- buttons -->
 </div> <!-- prev -->
 
+<div class ="review"> 
 <script>
 function showreview(){
 	var found = null;
@@ -158,8 +158,9 @@ function showreview(){
 
 
 </script>
+</div>
 <!--
-<div class ="review">
+
 
 
 <strong> 감자사랑 </strong>
@@ -177,31 +178,6 @@ function showreview(){
 
 
 <!--<form action ="" method="post">-->
-<div class ="review">
-
-<?
-	echo<table id="showrev">
-	//별점순 보여주기
-
-	while($row = mysqli_fetch_array($starresult)) {
-        echo  "
-		$row['reviewer']
-		<span class="star-rating">
-		<span style ="width: $row['star']*10%"></span>
-		</span>
-		<p>
-        $row['r1']
-		</p>
-		<p>
-        $row['r2'] 
-		</p>
-		<p>
-		$row['r3'] 
-		</p>";
-    } 
-	</table>
-?>
-</div>
 <!--
 <input type="text" name="nickname">
 <input type="text" name="star" style="font-size: larger; color: rgb(255, 217, 0); float: right;">
