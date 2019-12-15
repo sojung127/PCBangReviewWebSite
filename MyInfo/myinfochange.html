@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>PC방 리뷰 사이트</title>
-    <link rel="stylesheet" href="..\MenuBar.css">
-    <link rel="stylesheet" href="..\signup.css">
+    <link rel="stylesheet" href="../menubar/MenuBar.css">
+    <link rel="stylesheet" href="../signup/signup.css">
     <link rel="stylesheet" href="myInfo.css">
     <style>
         
@@ -13,38 +13,35 @@
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="..\address.js"></script>
-<script src="..\popup.js"></script>
+<script src="../signup/address.js"></script>
+<script src="../signup/popup.js"></script>
 </head>
 
 <body>
-    <!-- <header style="display:block">
-        <nav id="main_menu">
+    <?php
+    $host='0.tcp.ngrok.io:17235';
+    $sqlUser = 'root';
+    $sqlPW = '1234';
+    $sqlDB='pcreview';
+    $db = new mysqli($host,$sqlUser,$sqlPW,$sqlDB);
+    if(mysqli_connect_errno()){
+        echo 'error try again later';
+        exit;
+    }
+    @session_start();
 
-            <image id="menu_logo" src="..\Search_window+css\logo.png" width="100" height="75" alt="">
+    $query = 'SELECT name, id, nickname,phone from userinfo where id=?;';
+    $stmt = $db->prepare($query);
+    $stmt->bind_param('s',$_SESSION['login']);
+    $stmt->execute();
 
-                <ul id="menu_tab">
+    $result = $stmt->get_result()->fetch_assoc();
+    $name = $result['name'];
+    $id = $result['id'];
+    $nickname = $result['nickname'];
+    $phone = $result['phone'];
 
-                    <a href="..\mainpage\mainpage.html">
-                        <li>홈</li>
-                    </a>
-                    <a href="..\Search_window+css\search_window.html">
-                        <li>검색</li>
-                    </a>
-                    <a href="myinfochange.html">
-                        <li style="color: #444444;">내 정보</li>
-                    </a>
-                    <a href="">
-                        <li>로그아웃</li>
-                    </a>
-                </ul>
-
-        </nav>
-    </header> -->
-
-
-
-
+    ?>
     <section>
         <div id="side_bar">
             <h1>내 정보</h1>
@@ -58,32 +55,32 @@
         </div>
         <div>
             <h1>정보 수정</h1>
-            <form>
+            <form action="infoChange.php" method="POST">
                 <table>
                     <tr>
                         <td>이름</td>
-                        <td>홍길동</td>
+                        <td><?php echo $name; ?></td>
                     </tr>
                     <tr>
                         <td>닉네임</td>
-                        <td>출발드림팀</td>
+                        <td><?php echo $nickname; ?></td>
                         <td><input type="button" value="닉네임 변경하기" onclick="popup('nickChange.html')"></td>
                     </tr>
                     <tr>
                         <td>ID</td>
-                        <td>gildong1886</td>
+                        <td><?php echo $id; ?></td>
                     </tr>
                     <tr>
                         <td>비밀번호 변경</td>
-                        <td><input type="password"></td>
+                        <td><input type="password" name = 'pw'></td>
                     </tr>
                     <tr>
                         <td>비밀번호 확인</td>
-                        <td><input type="password"></td>
+                        <td><input type="password" name='pw_re'></td>
                     </tr>
                     <tr>
                         <td>전화번호</td>
-                        <td><input type="tel"></td>
+                        <td><?php echo $phone; ?></td>
                     </tr>
                     <tr>
                         <td>주소</td>
@@ -94,7 +91,7 @@
                     </tr>
                     <tr>
                         <td>이메일</td>
-                        <td><input type="email"></td>
+                        <td><input type="email" name='email'></td>
                     </tr>
                     <tr>
                         <td></td><td></td><td><input type="submit" value="수정"></td>
