@@ -45,7 +45,7 @@
 	@session_start();
 	$_SESSION['prevPage']=$_SERVER['REQUEST_URI'];
 	if(isset($_SESSION['login'])){
-		header('Location:mainpage_login.php');
+		header('Location:mainpage_login.html');
 	}
 ?>
 
@@ -97,18 +97,18 @@
 	
 
 	<div class="your-class" align="center" style="width:90%; left: 5%;">
-		<div><img src=<?php echo $IMG1[0] ?> width=500px height=360px style="border: 50 solid lightgray"
+		<div><a href=<?php echo ?>><img src=<?php echo $IMG1[0] ?> width=500px height=360px style="border: 50 solid lightgray"
 			vspace=10 hspace=10></a>
 			<?php echo $NAME1[0];?>
 		</div>
-		<div><img src=<?php echo $IMG1[1] ?> width=500px height=360px style="border: 50 solid lightgray" vspace=10 hspace=10></a>
+		<div><a href=""><img src=<?php echo $IMG1[1] ?> width=500px height=360px style="border: 50 solid lightgray" vspace=10 hspace=10></a>
 			<?php echo $NAME1[1];?>
 		</div>
-		<div><img src=<?php echo $IMG1[2] ?> width=500px height=360px style="border: 50 solid lightgray"
+		<div><a href=""><img src=<?php echo $IMG1[2] ?> width=500px height=360px style="border: 50 solid lightgray"
 			vspace=10 hspace=10></a>
 			<?php echo $NAME1[2];?>
 		</div>
-		<div><img src=<?php echo $IMG1[3] ?> width=500px height=360px style="border: 50 solid lightgray"
+		<div><a href=""><img src=<?php echo $IMG1[3] ?> width=500px height=360px style="border: 50 solid lightgray"
 			vspace=10 hspace=10></a>
 			<?php echo $NAME1[3];?>
 		</div>

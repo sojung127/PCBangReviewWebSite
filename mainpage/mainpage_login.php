@@ -43,12 +43,11 @@
 ?>
 <?php
 	@session_start();
-	$_SESSION['prevPage']=$_SERVER['REQUEST_URI'];
-	if(isset($_SESSION['login'])){
-		header('Location:mainpage_login.php');
-	}
-?>
 
+    if(!isset($_SESSION['login'])){
+        header('Location:../login/loginFrame.html');
+    }
+ ?>
 <div class="hero-image">
 
 	<header>
