@@ -34,7 +34,7 @@
 
 <?php include('search.php'); ?>
 <?php 
-	@$db = new mysqli('0.tcp.ngrok.io:10930','root','1234','pcreview');
+	@$db = new mysqli('localhost','root','1234','pcreview');
 	if(mysqli_connect_errno()){
     	echo 'error try again later';
     	exit;
@@ -97,8 +97,8 @@
 
 	<div class="your-class" align="center" style="width:90%; left: 5%;">
 		<div>
-			<form action="main_info.php" method="post">
-			<input type="hidden" name="I" value="1">
+			<form action="../pcbanginfo/pcbanginfoframe.html" method="GET">
+			<input type="hidden" name="PCBNUM" value="1">
 			<input type="image" src=<?php echo $IMG1[0] ?> width=500px height=360px style="border: 50 solid lightgray"
 			vspace=10 hspace=10>
 			</form>
