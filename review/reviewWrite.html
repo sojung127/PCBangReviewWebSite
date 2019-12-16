@@ -4,30 +4,21 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="review.css">
     <script src="http://code.jquery.com/jquery-latest.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
-        $('#star_grade').children("a").click(function () {
-            alert("hey");
-            $(this).parent().children("a").removeClass("on");  /* 별점의 on 클래스 전부 제거 */
-            $(this).addClass("on").prevAll("a").addClass("on"); /* 클릭한 별과, 그 앞 까지 별점에 on 클래스 추가 */
-            return false;
-        });
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 
-    </script>
+    
     <style>
-        
-.star_rating {font-size:0; letter-spacing:-4px;}
-.star_rating a {
-    font-size:22px;
-    letter-spacing:0;
-    display:inline-block;
-    margin-left:5px;
-    color:#ccc;
-    text-decoration:none;
-}
-.star_rating a:first-child {margin-left:0;}
-.star_rating a.on {color:#777;}
-
+        #star_grade a{
+            text-decoration: none;
+            color: gray;
+        }#star_grade a.on{
+            color: gold;
+        }
+        p a span{
+            font-size:50px;
+        }
 
 /* 출처: https://uidevelop.tistory.com/36# [UI Develop] */
     </style>
@@ -35,17 +26,18 @@
 
 </head>
 <body>
+    
     <section>
         <h1 style="text-align: left; font-size:200%; padding-left:5%;">리뷰 작성</h1>
         <article>
             <h1 style="font-size:250%; margin:0px;">어깨 PC방</h1>
             <p>서울시 서대문구 대현동 14-7</p>
             <p id="star_grade">
-                    <a href="#">★</a>
-                    <a href="#">★</a>
-                    <a href="#">★</a>
-                    <a href="#">★</a>
-                    <a href="#">★</a>
+                <a href="#" class="on"><span>★</span></a>
+                <a href="#" class="on"><span>★</span></a>
+                <a href="#" class="on"><span>★</span></a>
+                <a href="#" class="on"><span>★</span></a>
+                <a href="#" class="on"><span>★</span></a>
             </p>
             <form action="review.php" method="POST" enctype="multipart/form-data">
             <table>
@@ -89,10 +81,24 @@
                     </div>
                 </td></tr>
             </table>
+            <input type='hidden' id='star' name='star'>
             <input type="submit" value="제출하기" style="color:white; margin:10px; background-color: #444444; border-radius: 5px;">
             </form>
         </article>
     </section>
-
+    <p style = "height:300px;"></p>
 </body>
+<script>
+        
+    $('#star_grade a').click(function(){
+        $(this).parent().children("a").removeClass("on");  /* 별점의 on 클래스 전부 제거 */
+        $(this).addClass("on").prevAll("a").addClass("on"); /* 클릭한 별과, 그 앞 까지 별점에 on 클래스 추가 */
+        var star = $('.on').length;
+        var hiddenField = document.getElementById("star");
+        hiddenField.setAttribute("value",star);
+        document.append(star);
+        return false;
+    });
+
+</script>
 </html>
