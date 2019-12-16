@@ -12,7 +12,7 @@
 
 <body>
     <?php
-	$mysql_host = '0.tcp.ngrok.io:17235';
+	$mysql_host = '0.tcp.ngrok.io:19658';
     $mysql_user = 'root';
     $mysql_password = '1234';
     $mysql_db = 'pcreview';
@@ -68,8 +68,7 @@
 			
 	//최신순
 	$reviewnumsql = 'SELECT reviewer, r1, r2, r3, star 
-					FROM pcbreview INNER JOIN pcbinfo 
-					ON pcbreview.pcbnum=pcbinfo.pcbnum
+					FROM pcbreview WHERE pcbreview.pcbnum='.$PCBNUM.'
 					ORDER BY reviewNUM DESC';
     $reviewnumresult = mysqli_query($db,$reviewnumsql);
 	//mysqli_close($db);

@@ -25,7 +25,7 @@
 
             require("listdb.php");
 
-            $db=mysqli_connect ('0.tcp.ngrok.io:17235', 'root', '1234', 'pcreview');
+            $db=mysqli_connect ('0.tcp.ngrok.io:19658', 'root', '1234', 'pcreview');
             if($db){
                 echo "connect : 성공<br>";
             }
