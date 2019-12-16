@@ -19,6 +19,10 @@
         p a span{
             font-size:50px;
         }
+        select{
+            font-size: 50px;
+            background-color: rgba(0, 0, 0, 0);
+        }
 
 /* 출처: https://uidevelop.tistory.com/36# [UI Develop] */
     </style>
@@ -30,7 +34,26 @@
     <section>
         <h1 style="text-align: left; font-size:200%; padding-left:5%;">리뷰 작성</h1>
         <article>
-            <h1 style="font-size:250%; margin:0px;">어깨 PC방</h1>
+            
+            <form action="review.php" method="POST" enctype="multipart/form-data">
+                <?php
+
+                @$db = new mysqli('localhost','root','1234','pcreview');
+                if(mysqli_connect_errno()){
+                    echo 'error try again later';
+                    exit;
+                }
+                
+                $sql = "SELECT PCBNUM, PCBNAME FROM PCBINFO;";
+                $result = mysqli_query($db,$sql);
+                
+                echo "<select name='PCBNAME'>";
+                while ($row = mysqli_fetch_array($result)) {
+                    echo "<option value='" . $row['PCBNUM'] . "'>" . $row['PCBNAME'] . "</option>";
+                }
+                echo "</select>";
+                
+                ?>
             <p>서울시 서대문구 대현동 14-7</p>
             <p id="star_grade">
                 <a href="#" class="on"><span>★</span></a>
@@ -39,7 +62,6 @@
                 <a href="#" class="on"><span>★</span></a>
                 <a href="#" class="on"><span>★</span></a>
             </p>
-            <form action="review.php" method="POST" enctype="multipart/form-data">
             <table>
                 <tr style="text-align: left;">
                     <td>
