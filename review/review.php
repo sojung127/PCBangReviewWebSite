@@ -75,9 +75,8 @@ if($stmt->affected_rows > 0){
     echo "<p>리뷰 등록중입니다. 잠시만 기다려주세요.</p>";
     @session_start();
     $_SESSION['RECENT REVIEW'] = 1;
-    echo "<script>location.href='../pcbanginfo/pcbanginfo.html';</script>";  //추후 리뷰 상세 페이지로 이동하도록 수정
-    
-    //echo "<script target='body'>location.href='../mainpage/mainpage.html';</script>";
+    echo "<script>location.href='../pcbanginfo/pcbanginfo.html?pcbnum=".$pcbnum."';</script>"; 
+  
 }else{
     echo "<p>insert error</p>";
 }
