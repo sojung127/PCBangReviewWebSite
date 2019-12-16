@@ -72,7 +72,7 @@
 
 
           //db 접속 및 필요 함수
-          $db=mysqli_connect ('0.tcp.ngrok.io:10930', 'root', '1234', 'pcreview');
+          $db=mysqli_connect ('0.tcp.ngrok.io:13767', 'root', '1234', 'pcreview');
 					if($db){
 					}
 					else{
@@ -294,7 +294,7 @@
 				<tbody>
 				  <tr>
 					<td width="70"><?php echo $revNumber; ?></td>    // 하이퍼링크 
-					<td width="150"><a href='/read.php?idx=<?php echo $revNumber ?>'><a href='/page/board/read.php?idx=<?php echo $revNumber; ?>'><?php echo $pcbname; ?></a></td>
+					<td width="150"><a href='/read.php?idx=<?php echo $revNumber ?>'><a href='/page/board/read.php?idx=<?php echo $revNumber; ?>'><?php echo $pcbNumber; ?></a></td>
 					<td width="500"><?php echo $review?><br><?php echo $hashtag?></td> 
 					<td width="120"><?php echo $reviewer ?></td> 
 				  </tr>
