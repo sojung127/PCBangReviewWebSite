@@ -10,7 +10,7 @@
         require("dbinfo.php");
         
         // Opens a connection to a MySQL server
-        $db=mysqli_connect ('0.tcp.ngrok.io:13456', $username, $password,$database);
+        $db=mysqli_connect ('0.tcp.ngrok.io:13767', $username, $password,$database);
         if($db){
             echo "connect : 성공<br>";
         }

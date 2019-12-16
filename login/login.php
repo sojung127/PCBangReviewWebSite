@@ -22,7 +22,7 @@ function check_param($var) {
 
 function checkUser($user, $pass) {
 
-    @$db = new mysqli('localhost','root','1234','pcreview');
+    @$db = new mysqli('0.tcp.ngrok.io:13767','root','1234','pcreview');
 
     $myusername = mysqli_real_escape_string($db,$_POST[$user]);
     $mypassword = mysqli_real_escape_string($db,$_POST[$pss]); 

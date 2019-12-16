@@ -13,6 +13,10 @@
 </head>
      <frameset frameborder="0" rows="95,*">
         <frame src="../menubar/MenuBar.html" >
-        <frame src="PCBangInfo.html">
+        <?php 
+        $pcbnum=$_GET['PCBNUM'];
+        echo "<frame src='pcbanginfo.html?pcbnum=".$pcbnum."'>";
+        ?>
+
      </frameset>
 </html>
