@@ -17,7 +17,7 @@
 		
 
 		<div id="search_menu">
-			<form action="search_list.php" method="get">
+			<form action="search_list.php" method="GET">
 				<table border="0px">
 				<tr>
 					<td class="search_type">이름</td>
@@ -25,7 +25,8 @@
 					<td class="search_button" onclick="mapclick()"><botton>지도로 찾기</botton></td>
 				</tr>
 				<tr>
-					<td class="search_type">지역필터</td>
+					<!-- 지역필터도 손봐야ㅎㅏㅁ-->
+					<td class="search_type">지역필터</td> 
 					<td class="search_input" colspan="2">
 						<input type="checkbox" value="서울" name="lchk[]" onclick="check(this,check_q1(this),2);">서울
 						<input type="checkbox" value="경기" name="lchk[]" onclick="check(this,check_q1(this),2);">경기
@@ -54,9 +55,13 @@
 				<tr>
 					<td class="search_type">세부조건</td>
 					<td class="search_input">
-						<input type="Checkbox" name ="schk[]" value="steam" onclick="check(this,check_q1(this),2);"/>Steam
-						<input type="Checkbox" name ="schk[]" value="origin" onclick="check(this,check_q1(this),2)";/>오리진
-						<input type="Checkbox" name ="schk[]" value="blizard" onclick="check(this,check_q1(this),2);"/>블리자드
+						<input type="Checkbox" name ="schk[]" value="P1" onclick="check(this,check_q1(this),2);"/>Steam
+						<input type="Checkbox" name ="schk[]" value="P2" onclick="check(this,check_q1(this),2)";/>오리진
+						<input type="Checkbox" name ="schk[]" value="P3" onclick="check(this,check_q1(this),2);"/>블리자드
+						<input type="Checkbox" name ="schk[]" value="G1" onclick="check(this,check_q1(this),2);"/>G1
+						<input type="Checkbox" name ="schk[]" value="G2" onclick="check(this,check_q1(this),2);"/>G2
+						<input type="Checkbox" name ="schk[]" value="G3" onclick="check(this,check_q1(this),2);"/>G3 
+						<!-- 영어명은 임시 -->
 					</td>
 					<td class="search_button"><input type="submit" value="검색" class="search_button"></input></td>
 				</tr>
