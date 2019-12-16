@@ -293,8 +293,8 @@
 				?>
 				<tbody>
 				  <tr>
-					<td width="70"><?php echo $revNumber; ?></td>   
-					<td width="150"><a href='/page/board/ck_read.php?idx=<?php echo $revNumber ?>'><a href='/page/board/read.php?idx=<?php echo $revNumber; ?>'><?php echo $pcbname; ?></a></td>
+					<td width="70"><?php echo $revNumber; ?></td>    // 하이퍼링크 
+					<td width="150"><a href='/read.php?idx=<?php echo $revNumber ?>'><a href='/page/board/read.php?idx=<?php echo $revNumber; ?>'><?php echo $pcbname; ?></a></td>
 					<td width="500"><?php echo $review?><br><?php echo $hashtag?></td> 
 					<td width="120"><?php echo $reviewer ?></td> 
 				  </tr>
