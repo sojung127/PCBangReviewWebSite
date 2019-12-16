@@ -6,6 +6,7 @@ $speed=$_POST['speed'];
 $clean=$_POST['clean'];
 $etc = $_POST['etc'];
 $star = $_POST['star'];
+$pcbnum = $_POST['PCBNAME'];
 
 $pf1 = $pf2 = $pf3 = 0;
 $game1=$game2=$game3=$game4=$game5=0;
@@ -29,7 +30,7 @@ if(@$_POST['pf3']=='pf3')
     $pf3 = 1;
 
 
-@$db = new mysqli('0.tcp.ngrok.io:19658','root','1234','pcreview');
+@$db = new mysqli('0.tcp.ngrok.io:10930','root','1234','pcreview');
 if(mysqli_connect_errno()){
     echo 'error try again later';
     exit;
@@ -55,11 +56,11 @@ $stmt->execute();
 $result = $stmt->get_result()->fetch_assoc();
 $usernum=$result['usernum'];
 
-$query = "INSERT INTO pcbreview VALUES (null,5,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+$query = "INSERT INTO pcbreview VALUES (null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 $nullVar=null;
 
 $stmt = $db->prepare($query);
-$stmt->bind_param('isssiiiiiiiiis',$usernum,$speed,$clean,$etc,$pf1,$pf2,$pf3,$game1,$game2,$game3,$game4,$game5,$star,$imgurl);
+$stmt->bind_param('iisssiiiiiiiiis',$pcbnum,$usernum,$speed,$clean,$etc,$pf1,$pf2,$pf3,$game1,$game2,$game3,$game4,$game5,$star,$imgurl);
 $stmt->execute();
 
 if($stmt->affected_rows > 0){
@@ -74,9 +75,8 @@ if($stmt->affected_rows > 0){
     echo "<p>리뷰 등록중입니다. 잠시만 기다려주세요.</p>";
     @session_start();
     $_SESSION['RECENT REVIEW'] = 1;
-    echo "<script>location.href='../pcbanginfo/pcbanginfo.html';</script>";  //추후 리뷰 상세 페이지로 이동하도록 수정
-    
-    //echo "<script target='body'>location.href='../mainpage/mainpage.html';</script>";
+    echo "<script>location.href='../pcbanginfo/pcbanginfo.html?pcbnum=".$pcbnum."';</script>"; 
+  
 }else{
     echo "<p>insert error</p>";
 }

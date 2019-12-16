@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="phpstyle.css" />
+    <link rel="stylesheet" type="text/css" href="../menubar/menubar.css" />
   </head>
 
   <body>
@@ -71,7 +72,7 @@
 
 
           //db 접속 및 필요 함수
-          $db=mysqli_connect ('0.tcp.ngrok.io:19658', 'root', '1234', 'pcreview');
+          $db=mysqli_connect ('0.tcp.ngrok.io:10930', 'root', '1234', 'pcreview');
 					if($db){
 					}
 					else{

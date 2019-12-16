@@ -6,7 +6,7 @@
     </head>
     <body>
     <?php
-        $host='0.tcp.ngrok.io:19658';
+        $host='0.tcp.ngrok.io:10930';
         $sqlUser = 'root';
         $sqlPW = '1234';
         $sqlDB='pcreview';
