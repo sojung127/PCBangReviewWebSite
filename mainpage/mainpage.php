@@ -97,19 +97,36 @@
 	
 
 	<div class="your-class" align="center" style="width:90%; left: 5%;">
-		<div><img src=<?php echo $IMG1[0] ?> width=500px height=360px style="border: 50 solid lightgray"
-			vspace=10 hspace=10></a>
+		<div>
+			<form action="main_info.php" method="post">
+			<input type="hidden" name="I" value="1">
+			<input type="image" src=<?php echo $IMG1[0] ?> width=500px height=360px style="border: 50 solid lightgray"
+			vspace=10 hspace=10>
+			</form>
 			<?php echo $NAME1[0];?>
 		</div>
-		<div><img src=<?php echo $IMG1[1] ?> width=500px height=360px style="border: 50 solid lightgray" vspace=10 hspace=10></a>
+		<div>
+			<form action="main_info.php" method="post">
+			<input type="hidden" name="I" value="2">
+			<input type="image" src=<?php echo $IMG1[1] ?> width=500px height=360px style="border: 50 solid lightgray"
+			vspace=10 hspace=10>
+			</form>
 			<?php echo $NAME1[1];?>
 		</div>
-		<div><img src=<?php echo $IMG1[2] ?> width=500px height=360px style="border: 50 solid lightgray"
-			vspace=10 hspace=10></a>
+		<div>
+			<form action="main_info.php" method="post">
+			<input type="hidden" name="I" value="3">
+			<input type="image" src=<?php echo $IMG1[2] ?> width=500px height=360px style="border: 50 solid lightgray"
+			vspace=10 hspace=10>
+			</form>
 			<?php echo $NAME1[2];?>
 		</div>
-		<div><img src=<?php echo $IMG1[3] ?> width=500px height=360px style="border: 50 solid lightgray"
-			vspace=10 hspace=10></a>
+		<div>
+			<form action="main_info.php" method="post">
+			<input type="hidden" name="I" value="4">
+			<input type="image" src=<?php echo $IMG1[3] ?> width=500px height=360px style="border: 50 solid lightgray"
+			vspace=10 hspace=10>
+			</form>
 			<?php echo $NAME1[3];?>
 		</div>
 		
@@ -119,18 +136,35 @@
 	
 	<div class="your-class" align="center" style="width:90%; left: 5%;">
 		<div>
-			<img src=<?php echo $IMG2[1] ?> width=500px height=360px  vspace=10 hspace=10>
+			<form action="main_info.php" method="post">
+			<input type="hidden" name="I" value="5">
+			<input type="image" src=<?php echo $IMG2[0] ?> width=500px height=360px style="border: 50 solid lightgray"
+			vspace=10 hspace=10>
+			</form>
 			<?php echo $NAME2[0];?>
 		</div>
-		<div><img src=<?php echo $IMG2[1] ?> width=500px height=360px  vspace=10 hspace=10>
+		<div>
+			<form action="main_info.php" method="post">
+			<input type="hidden" name="I" value="6">
+			<input type="image" src=<?php echo $IMG2[1] ?> width=500px height=360px style="border: 50 solid lightgray"
+			vspace=10 hspace=10>
+			</form>
 			<?php echo $NAME2[1];?>
 		</div>
-		<div><img src=<?php echo $IMG2[2] ?> width=500px height=360px 
+		<div>
+			<form action="main_info.php" method="post">
+			<input type="hidden" name="I" value="7">
+			<input type="image" src=<?php echo $IMG2[2] ?> width=500px height=360px style="border: 50 solid lightgray"
 			vspace=10 hspace=10>
+			</form>
 			<?php echo $NAME2[2];?>
 		</div>
-		<div><img src=<?php echo $IMG2[3] ?> width=500px height=360px 
+		<div>
+			<form action="main_info.php" method="post">
+			<input type="hidden" name="I" value="8">
+			<input type="image" src=<?php echo $IMG2[3] ?> width=500px height=360px style="border: 50 solid lightgray"
 			vspace=10 hspace=10>
+			</form>
 			<?php echo $NAME2[3];?>
 		</div>
 	</div>
