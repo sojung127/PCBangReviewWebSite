@@ -34,7 +34,7 @@
 
 <?php include('search.php'); ?>
 <?php 
-	@$db = new mysqli('0.tcp.ngrok.io:10930','root','1234','pcreview');
+	@$db = new mysqli('0.tcp.ngrok.io:13767','root','1234','pcreview');
 	if(mysqli_connect_errno()){
     	echo 'error try again later';
     	exit;
@@ -66,7 +66,7 @@
 		</div>
 	</header>
 
-	<form name="f" onSubmit="checkForm()" method="post">
+	<form name="f" onSubmit="checkForm()" Submit="checkForm()" method="post">
 	<div class="search">
 		<div class ="search_in">
 			<select name="sido1" id="sido1" class="select_box"></select>
@@ -98,32 +98,32 @@
 
 	<div class="your-class" align="center" style="width:90%; left: 5%;">
 		<div>
-			<form action="main_info.php" method="post">
-			<input type="hidden" name="I" value="1">
+			<form action="../pcbanginfo/pcbanginfoframe.html" method="GET"
+			<input type="hidden" name="PCBNUM" value=<?php  echo $NUM1[0]; ?>>
 			<input type="image" src=<?php echo $IMG1[0] ?> width=500px height=360px style="border: 50 solid lightgray"
 			vspace=10 hspace=10>
 			</form>
 			<?php echo $NAME1[0];?>
 		</div>
 		<div>
-			<form action="main_info.php" method="post">
-			<input type="hidden" name="I" value="2">
+			<form action="../pcbanginfo/pcbanginfoframe.html" method="GET">
+			<input type="hidden" name="PCBNUM" value=<?php  echo $NUM1[1]; ?>>
 			<input type="image" src=<?php echo $IMG1[1] ?> width=500px height=360px style="border: 50 solid lightgray"
 			vspace=10 hspace=10>
 			</form>
 			<?php echo $NAME1[1];?>
 		</div>
 		<div>
-			<form action="main_info.php" method="post">
-			<input type="hidden" name="I" value="3">
+			<form action="../pcbanginfo/pcbanginfoframe.html" method="GET">
+			<input type="hidden" name="PCBNUM" value=<?php  echo $NUM1[2]; ?>>
 			<input type="image" src=<?php echo $IMG1[2] ?> width=500px height=360px style="border: 50 solid lightgray"
 			vspace=10 hspace=10>
 			</form>
 			<?php echo $NAME1[2];?>
 		</div>
 		<div>
-			<form action="main_info.php" method="post">
-			<input type="hidden" name="I" value="4">
+			<form action="../pcbanginfo/pcbanginfoframe.html" method="GET">
+			<input type="hidden" name="PCBNUM" value=<?php  echo $NUM1[3]; ?>>
 			<input type="image" src=<?php echo $IMG1[3] ?> width=500px height=360px style="border: 50 solid lightgray"
 			vspace=10 hspace=10>
 			</form>
@@ -136,32 +136,32 @@
 	
 	<div class="your-class" align="center" style="width:90%; left: 5%;">
 		<div>
-			<form action="main_info.php" method="post">
-			<input type="hidden" name="I" value="5">
+			<form action="../pcbanginfo/pcbanginfoframe.html" method="GET">
+			<input type="hidden" name="PCBNUM" value=<?php  echo $NUM2[0]; ?>>
 			<input type="image" src=<?php echo $IMG2[0] ?> width=500px height=360px style="border: 50 solid lightgray"
 			vspace=10 hspace=10>
 			</form>
 			<?php echo $NAME2[0];?>
 		</div>
 		<div>
-			<form action="main_info.php" method="post">
-			<input type="hidden" name="I" value="6">
+			<form action="../pcbanginfo/pcbanginfoframe.html" method="GET">
+			<input type="hidden" name="PCBNUM" value=<?php  echo $NUM2[1]; ?>>
 			<input type="image" src=<?php echo $IMG2[1] ?> width=500px height=360px style="border: 50 solid lightgray"
 			vspace=10 hspace=10>
 			</form>
 			<?php echo $NAME2[1];?>
 		</div>
 		<div>
-			<form action="main_info.php" method="post">
-			<input type="hidden" name="I" value="7">
+			<form action="../pcbanginfo/pcbanginfoframe.html" method="GET">
+			<input type="hidden" name="PCBNUM" value=<?php  echo $NUM2[2]; ?>>
 			<input type="image" src=<?php echo $IMG2[2] ?> width=500px height=360px style="border: 50 solid lightgray"
 			vspace=10 hspace=10>
 			</form>
 			<?php echo $NAME2[2];?>
 		</div>
 		<div>
-			<form action="main_info.php" method="post">
-			<input type="hidden" name="I" value="8">
+			<form action="../pcbanginfo/pcbanginfoframe.html" method="GET">
+			<input type="hidden" name="PCBNUM" value=<?php  echo $NUM2[3]; ?>>
 			<input type="image" src=<?php echo $IMG2[3] ?> width=500px height=360px style="border: 50 solid lightgray"
 			vspace=10 hspace=10>
 			</form>
