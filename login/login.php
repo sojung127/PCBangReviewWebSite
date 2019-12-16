@@ -7,9 +7,10 @@
     if (checkUser($user, $pass)) {
             $_SESSION["login"] = $user;
             $_SESSION["begin"] = date("F j, Y, g:i:s a");
-            header("Location: ".$_SESSION['prevPage']);
+            echo '<script>parent.location.href="'.$_SESSION['prevPage'].'"</script>';
+
         } else {
-            header("Location: loginFrame.html");
+            header("Location: login.html");
         }
     
 function check_param($var) {

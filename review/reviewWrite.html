@@ -4,30 +4,25 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="review.css">
     <script src="http://code.jquery.com/jquery-latest.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
-        $('#star_grade').children("a").click(function () {
-            alert("hey");
-            $(this).parent().children("a").removeClass("on");  /* 별점의 on 클래스 전부 제거 */
-            $(this).addClass("on").prevAll("a").addClass("on"); /* 클릭한 별과, 그 앞 까지 별점에 on 클래스 추가 */
-            return false;
-        });
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 
-    </script>
+    
     <style>
-        
-.star_rating {font-size:0; letter-spacing:-4px;}
-.star_rating a {
-    font-size:22px;
-    letter-spacing:0;
-    display:inline-block;
-    margin-left:5px;
-    color:#ccc;
-    text-decoration:none;
-}
-.star_rating a:first-child {margin-left:0;}
-.star_rating a.on {color:#777;}
-
+        #star_grade a{
+            text-decoration: none;
+            color: gray;
+        }#star_grade a.on{
+            color: gold;
+        }
+        p a span{
+            font-size:50px;
+        }
+        select{
+            font-size: 50px;
+            background-color: rgba(0, 0, 0, 0);
+        }
 
 /* 출처: https://uidevelop.tistory.com/36# [UI Develop] */
     </style>
@@ -35,30 +30,38 @@
 
 </head>
 <body>
-    <!-- <header style="display:block">
-        <nav id="main_menu">
-            <image id="menu_logo" src="Search_window+css\logo.png" width="100" height="75" alt="">
-                <ul id="menu_tab">
-                    <a href="mainpage\mainpage.html"><li>홈</li></a>
-                    <a href="Search_window+css\search_window.html"><li>검색</li></a>
-                    <a href="MyInfo\myinfochange.html"><li>내 정보</li></a>
-                    <a href=""><li>로그아웃</li></a>
-                </ul>
-        </nav>
-    </header> -->
+    
     <section>
         <h1 style="text-align: left; font-size:200%; padding-left:5%;">리뷰 작성</h1>
         <article>
-            <h1 style="font-size:250%; margin:0px;">어깨 PC방</h1>
+            
+            <form action="review.php" method="POST" enctype="multipart/form-data">
+                <?php
+
+                @$db = new mysqli('localhost','root','1234','pcreview');
+                if(mysqli_connect_errno()){
+                    echo 'error try again later';
+                    exit;
+                }
+                
+                $sql = "SELECT PCBNUM, PCBNAME FROM PCBINFO;";
+                $result = mysqli_query($db,$sql);
+                
+                echo "<select name='PCBNAME'>";
+                while ($row = mysqli_fetch_array($result)) {
+                    echo "<option value='" . $row['PCBNUM'] . "'>" . $row['PCBNAME'] . "</option>";
+                }
+                echo "</select>";
+                
+                ?>
             <p>서울시 서대문구 대현동 14-7</p>
             <p id="star_grade">
-                    <a href="#">★</a>
-                    <a href="#">★</a>
-                    <a href="#">★</a>
-                    <a href="#">★</a>
-                    <a href="#">★</a>
+                <a href="#" class="on"><span>★</span></a>
+                <a href="#" class="on"><span>★</span></a>
+                <a href="#" class="on"><span>★</span></a>
+                <a href="#" class="on"><span>★</span></a>
+                <a href="#" class="on"><span>★</span></a>
             </p>
-            <form action="review.php" method="POST" enctype="multipart/form-data">
             <table>
                 <tr style="text-align: left;">
                     <td>
@@ -68,15 +71,15 @@
                 </tr>
                 <tr>
                     <td>
-                    <input class="text_input" type ="text" name="speed" value="수강신청, 티켓팅 후기 및 붐비는 시간대 혹은 날을 적어주세요." size="200"></td>
+                    <input class="text_input" type ="text" name="speed" placeholder="수강신청, 티켓팅 후기 및 붐비는 시간대 혹은 날을 적어주세요." size="200"></td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" name="clean" value="컴퓨터 및 시설의 사용감, PC방의 청결도, 분위기에 대해 적어주세요." size="200"  class="text_input">
+                        <input type="text" name="clean" placeholder="컴퓨터 및 시설의 사용감, PC방의 청결도, 분위기에 대해 적어주세요." size="200"  class="text_input">
                     </td>
                 </tr>
                 <tr><td>
-                    <input type="text" name="etc" value="그 외 하고 싶은 말을 적어주세요." size="200" class="text_input">
+                    <input type="text" name="etc" placeholder="그 외 하고 싶은 말을 적어주세요." size="200" class="text_input">
                 </td></tr>
                 <tr style="text-align: left; "><td>
                     <div style="padding-left:25px;">
@@ -100,10 +103,24 @@
                     </div>
                 </td></tr>
             </table>
+            <input type='hidden' id='star' name='star'>
             <input type="submit" value="제출하기" style="color:white; margin:10px; background-color: #444444; border-radius: 5px;">
             </form>
         </article>
     </section>
-
+    <p style = "height:300px;"></p>
 </body>
+<script>
+        
+    $('#star_grade a').click(function(){
+        $(this).parent().children("a").removeClass("on");  /* 별점의 on 클래스 전부 제거 */
+        $(this).addClass("on").prevAll("a").addClass("on"); /* 클릭한 별과, 그 앞 까지 별점에 on 클래스 추가 */
+        var star = $('.on').length;
+        var hiddenField = document.getElementById("star");
+        hiddenField.setAttribute("value",star);
+        document.append(star);
+        return false;
+    });
+
+</script>
 </html>

@@ -1,3 +1,8 @@
+body{
+    background-image: url('background.png');
+	background-size:cover;
+}
+
 #page_num {
 	text-align:center;
 	padding:10px;
@@ -22,6 +27,16 @@ thead {
 	background-color : #585858;
 	color : white;
 }
-#write_btn {
-	text-align: center;
+
+h1 {
+	text-align:center;
+}
+
+
+table {	
+	list-style:none;
+	width:1200px;
+	height:400px;
+	margin:auto;
+	text-align:center;
 }

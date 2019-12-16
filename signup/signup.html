@@ -8,23 +8,16 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="address.js"></script>
     <script type="text/javascript">
-        function popup(url){
+        function checkid(){
             var name= "중복확인";
-
-            var popupX = (document.body.offsetWidth / 2) - (500 / 2);
-//&nbsp;만들 팝업창 좌우 크기의 1/2 만큼 보정값으로 빼주었음
-
-            var popupY= (document.body.offsetHeight / 2) - (150 / 2);
-//&nbsp;만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
-
-            var option = "width=500, height=150, left="+ popupX + ', top='+ popupY;
-            window.open(url, name, option);
-
+            var userid = document.getElementById("id").value;
+            if(userid){
+                url="idDuplic.php?id="+userid;
+                window.open(url,"chkid","width=500,height=200");
+            }else{
+                alert("아이디를 입력하세요");
+            }
         }
-     
-
-
-
     </script>
 </head>
 <body>
@@ -36,29 +29,29 @@
         <table>
             <tr>
                 <td>이름</td>
-                <td><input type="text" name="name"></td>
+                <td><input type="text" name="name" required></td>
             </tr>
             <tr>
                 <td>닉네임</td>
-                <td><input type="text" name="nick">
-                    <input type="button" value="닉네임 중복확인" onclick="popup('nickDuplic.html')"></td>
+                <td><input type="text" name="nick" id="nick" required>
+                    <!-- <input type="button" value="닉네임 중복확인" onclick="popup('nickDuplic.html')"></td> -->
             </tr>
             <tr>
                 <td>ID</td>
-                <td><input type="text" name="id">
-                    <input type="button" value="ID 중복확인" onclick = "popup('idDuplic.html')"></td>
+                <td><input type="text" name="id" id="id" required>
+                    <input type="button" value="ID 중복확인" onclick = "checkid()"></td>
             </tr>
             <tr>
                 <td>비밀번호</td>
-                <td><input type="password" name="pw"></td>
+                <td><input type="password" name="pw" required></td>
             </tr>
             <tr>
                 <td>비밀번호 확인</td>
-                <td><input type="password" name="pw_re"></td>
+                <td><input type="password" name="pw_re" required></td>
             </tr>
             <tr>
                 <td>전화번호</td>
-                <td><input type="tel" name="telephone"></td>
+                <td><input type="tel" name="telephone" required></td>
             </tr>
         </table>
         <h3>선택항목</h3>
