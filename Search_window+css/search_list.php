@@ -12,26 +12,20 @@
 			<table class="list-table">
 				<thead>
 					<tr>
-						<th width="70">번호</th>
 						  <th width="150">피시방</th>
-						  <th width="500">리뷰 내용</th>
-						  <th width="120">작성자</th>
+						  <th width="600">세부정보</th>
 					  </tr>
 				</thead>
         <?php
           //검색 입력 저장//
           $input_n=$_GET['name']; //이름으로 검색 텍스트 필드 값
-
           $i=0;
           for($i=0; $i<count($_GET['lchk']); $i++){ //지역으로 검색 텍스트 필드값
             $input_l = $_GET['lchk'];
           }
-
           for($i=0; $i<count($_GET['schk']); $i++){ //세부사항으로 검색 텍스트 필드값
             $input_s = $_GET['schk'];
           }
-
-
           //입력에 따른 스위치 var 결정//
           $name_c;
           if (strlen($input_n)==0){
@@ -43,7 +37,6 @@
           $l_c=isset($_GET['lchk']);
           $s_c=isset($_GET['schk']);
           $query_switch;
-
           if($name_c==true&&$l_c==false&&$s_c==false){
             $query_switch=1;
           }
@@ -68,9 +61,6 @@
           else if($name_c==false&&$l_c==false&&$s_c==false){
             $query_switch=0;
           }
-
-
-
           //db 접속 및 필요 함수
           $db=mysqli_connect ('0.tcp.ngrok.io:13767', 'root', '1234', 'pcreview');
 					if($db){
@@ -85,20 +75,18 @@
 					return $db->query($sql);
           }
           
-
           //qeury switching
           $query;
 		  $get_pcbnum; $result_get_num;
 		  $s1=0; $s2=0; $s3=0;
 		  $add_l="";$add_s=""; $forchk=false;
-          $search_PCBNUM; $num; $pcbname;
-
+		  $search_PCBNUM; $num; $pcbname;
+		  
 
         switch($query_switch){
             case 0: // 아무 조건도 없는 default 상태
-              $query = "SELECT * from pcbreview";
+              $query = "SELECT * from pcbinfo";
             break;
-
             case 1: // 이름만 가지고 검색
               $get_pcbnum = "SELECT * from pcbinfo WHERE PCBNAME='".$input_n."';"; 
               $result_get_num = mysqli_query($db, $get_pcbnum);
@@ -106,10 +94,8 @@
 				$num=$board->PCBNUM;
 				$pcbname=$board->PCBNAME;
               }
-              $query = "SELECT * from pcbreview  WHERE PCBNUM='".$num."'";
-
+              $query = "SELECT * from pcbinfo  WHERE PCBNUM='".$num."'";
             break;
-
 			case 2: //장소만 가지고 검색
 				for($i=0; $i<count($_GET['lchk']); $i++){ //지역으로 검색 텍스트 필드값
 					if (isset($_GET['lchk'][$i])==true)
@@ -126,19 +112,19 @@
 						}
 					}
 				  }
-				
+
 				$getpcbnum = "SELECT * from pcbinfo WHERE ".$add_l.";";
 				$rs2=mysqli_query($db, $getpcbnum);
 		  
 				while($board = mysqli_fetch_object($rs2)){
 					$num=$board->PCBNUM;
+
 					$pcbname=$board->PCBNAME;
-				}  
+				}
+				
 				  
-				$query = "SELECT * from pcbreview WHERE PCBNUM='".$num."'";
-
+				$query = "SELECT * from pcbinfo WHERE ".$add_l;
             break;
-
 			case 3://세부사항만 가지고 검색
 				
 				for($i=0; $i<count($_GET['schk']); $i++){ //지역으로 검색 텍스트 필드값
@@ -160,8 +146,6 @@
 					
 					
 				  }
-
-
 				$add_s="P1='".$s1."' AND P2 = '".$s2."' AND P3 = '".$s3."';";
 				$getpcbnum = "SELECT * from swinfo WHERE ".$add_s;
 				$rs2=mysqli_query($db, $getpcbnum);
@@ -171,15 +155,13 @@
 				}
 				
 				  
-				$query = "SELECT * from pcbreview WHERE PCBNUM='".$num."'";
-
+				$query = "SELECT * from pcbinfo WHERE PCBNUM='".$num."'";
 				$get_pcbnum = "SELECT * from pcbinfo WHERE PCBNAME='".$input_n."';"; 
 				$result_get_num = mysqli_query($db, $get_pcbnum);
 				while($board = mysqli_fetch_object($result_get_num)){
 				  $pcbname=$board->PCBNAME;
 				}
             break;
-
 			case 4: //이름, 장소 (근데 이름 겹치는 게 없어서.. 이름으로 땜빵)
 				$get_pcbnum = "SELECT * from pcbinfo WHERE PCBNAME='".$input_n."';"; 
               $result_get_num = mysqli_query($db, $get_pcbnum);
@@ -187,13 +169,10 @@
 				$num=$board->PCBNUM;
 				$pcbname=$board->PCBNAME;
               }
-              $query = "SELECT * from pcbreview  WHERE PCBNUM='".$num."'";
-
-
+              $query = "SELECT * from pcbinfo  WHERE PCBNUM='".$num."'";
 			
 			  
             break;
-
 			case 5: //이름 기능 (이거 잘못하면 표시되는 게 없어져서 이름으로 땜빵)
 				$get_pcbnum = "SELECT * from pcbinfo WHERE PCBNAME='".$input_n."';"; 
               $result_get_num = mysqli_query($db, $get_pcbnum);
@@ -201,10 +180,8 @@
 				$num=$board->PCBNUM;
 				$pcbname=$board->PCBNAME;
               }
-              $query = "SELECT * from pcbreview  WHERE PCBNUM='".$num."'";
-
+              $query = "SELECT * from pcbinfo WHERE PCBNUM='".$num."'";
             break;
-
 			case 6: 
 				for($i=0; $i<count($_GET['lchk']); $i++){ //지역으로 검색 텍스트 필드값
 					if (isset($_GET['lchk'][$i])==true)
@@ -231,9 +208,8 @@
 					$pcbname=$board->PCBNAME;
 				}  
 				  
-				$query = "SELECT * from pcbreview WHERE PCBNUM='".$num."'";
+				$query = "SELECT * from pcbinfo WHERE PCBNUM='".$num."'";
             break;
-
 			case 7: //전부 하는거도 이름으로 땜빵
 				$get_pcbnum = "SELECT * from pcbinfo WHERE PCBNAME='".$input_n."';"; 
               $result_get_num = mysqli_query($db, $get_pcbnum);
@@ -241,15 +217,10 @@
 				$num=$board->PCBNUM;
 				$pcbname=$board->PCBNAME;
               }
-              $query = "SELECT * from pcbreview  WHERE PCBNUM='".$num."'";
-
+              $query = "SELECT * from pcbinfo  WHERE PCBNUM='".$num."'";
             break;
-
-
           }
 					
-
-
 					if(isset($_GET['page'])){
 						$page = $_GET['page'];
 					}
@@ -274,29 +245,34 @@
 					$currentLimit = ($list * $page) - $list; //몇 번째의 글부터 가져오는지
 					$sqlLimit = ' limit ' . $currentLimit . ', ' . $list; //limit sql 구문
 							
-					$sql2 = $query." ORDER BY reviewNUM DESC ".$sqlLimit;
+					$sql2 = $query." ".$sqlLimit;
 					$rs2=mysqli_query($db, $sql2);
-		  
 					while($board = mysqli_fetch_object($rs2)){
-					$revNumber=$board->reviewNUM;
+					$pcbname_r=$board->PCBNAME;
 					$pcbNumber=$board->PCBNUM;
-					$reviewer=$board->REVIEWER;
-					$review=$board->R1;
-					$hashtag=$board->R2;
-		  
-					if(strlen($review)>30)
-					{ 
-					$review=str_replace($review,mb_substr($review,0,30,"utf-8")."...",$review);
-					}    
-						  
+					$address_r=$board->ADDRESS;
+					$CPU=$board->CPU;
+					$MEM=$board->MEM;
+					$GRPC=$board->GRPCard;
+					$PCBimg=$board->PCBimage;
+					$menuimg=$board->menuImage;
+					$seat=$board->SEAT;
+					$INFO=$board->INFO;
 						  
 				?>
 				<tbody>
 				  <tr>
-					<td width="70"><?php echo $revNumber; ?></td>    // 하이퍼링크 
-					<td width="150"><a href='/read.php?idx=<?php echo $revNumber ?>'><a href='/page/board/read.php?idx=<?php echo $revNumber; ?>'><?php echo $pcbNumber; ?></a></td>
-					<td width="500"><?php echo $review?><br><?php echo $hashtag?></td> 
-					<td width="120"><?php echo $reviewer ?></td> 
+					<td width="150">
+						<form action="../pcbanginfo/pcbanginfoframe.html" method="GET">
+						<input type="hidden" name="PCBNUM" value=<?php $pcbNumber ?>>
+						<input type="image" src=<?php $PCBimg ?> value=1 width="400" height="300">
+					</form>
+					</td>
+					<td width="600">
+						<b><?php echo $pcbname_r?></b><br><?php echo $address_r?>
+						<br><br><?php echo $CPU." ".$MEM." ".$GRPC?>
+						<br><br><?php echo $INFO?>
+					</td> 
 				  </tr>
 				</tbody>
 				<?php } ?>
@@ -341,9 +317,7 @@
 				?>
 				</ul>
 			</div>
-			<div id="write_btn">
-				<a href="..\review\reviewWrite.html"><button>글쓰기</button></a>
-			</div>
+				<div id="backbtn"><a href="search_window.html"><button>돌아가기</button></a></div>
       </div>
 </body>
 </html>
