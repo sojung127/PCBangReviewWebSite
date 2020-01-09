@@ -29,6 +29,13 @@
     </style>
     <title>PC방 리뷰 사이트</title>
 
+    <?php
+        @session_start();
+        $_SESSION['prevPage']=$_SERVER['REQUEST_URI'];
+        if(!isset($_SESSION['login'])){
+            header('Location: ../login/login.html');
+        }
+     ?>
 </head>
 <body>
     
@@ -39,7 +46,7 @@
             <form action="review.php" method="POST" enctype="multipart/form-data">
                 <?php
 
-                @$db = new mysqli('0.tcp.ngrok.io:13767','root','1234','pcreview');
+                @$db = new mysqli('localhost','root','1234','pcreview');
                 if(mysqli_connect_errno()){
                     echo 'error try again later';
                     exit;

@@ -17,7 +17,7 @@
 		
 
 		<div id="search_menu">
-			<form action="search_list.php" method="GET">
+			<form action="search_window.html" method="GET">
 				<table border="0px">
 				<tr>
 					<td class="search_type">이름</td>
@@ -61,7 +61,8 @@
 						<input type="Checkbox" name ="schk[]" value="G1" onclick="check(this,check_q1(this),2);"/>G1
 						<input type="Checkbox" name ="schk[]" value="G2" onclick="check(this,check_q1(this),2);"/>G2
 						<input type="Checkbox" name ="schk[]" value="G3" onclick="check(this,check_q1(this),2);"/>G3
-						<input type="Checkbox" name ="schk[]" value="G4" onclick="check(this,check_q1(this),2);"/>G4  
+						<input type="Checkbox" name ="schk[]" value="G4" onclick="check(this,check_q1(this),2);"/>G4
+						<input type="Checkbox" name ="schk[]" value="G5" onclick="check(this,check_q1(this),2);"/>G5   
 					</td>
 					<td class="search_button"><input type="submit" value="검색" class="search_button"></input></td>
 				</tr>
@@ -69,5 +70,10 @@
 				
 			</form>
 		</div>
+
+		<?php include("search_list.php"); ?>
+
+	</body>
+
 
 <html>

@@ -34,15 +34,20 @@ header{height: 300px;}
     {
         float:left;
     }
+    
 
     .menuItem
     {
         float:right;
     }
 
-    
-
     .menubar li
+    {
+      list-style: none;
+      float:left;
+    }
+
+    ul
     {
         list-style:none;
         float:left;
@@ -52,7 +57,7 @@ header{height: 300px;}
     .menubar a
     {
         color:#FFFFFF;
-        display:block;
+        display:inline-block;
         font-weight:900;
         line-height:100px;
         padding:0px 110px 0px 20px;
@@ -65,7 +70,7 @@ header{height: 300px;}
       text-align: center;
     }
     .search_in{
-      padding-top: 150px;
+      padding-top: 220px;
       display : inline-block;
     }
 

@@ -17,15 +17,21 @@
 					  </tr>
 				</thead>
         <?php
-          //검색 입력 저장//
-          $input_n=$_GET['name']; //이름으로 검색 텍스트 필드 값
+		  //검색 입력 저장//
+		
+		  $input_n=@$_GET['name']; //이름으로 검색 텍스트 필드 값
+		  
+
           $i=0;
-          for($i=0; $i<count($_GET['lchk']); $i++){ //지역으로 검색 텍스트 필드값
-            $input_l = $_GET['lchk'];
-          }
-          for($i=0; $i<count($_GET['schk']); $i++){ //세부사항으로 검색 텍스트 필드값
-            $input_s = $_GET['schk'];
-          }
+          for($i=0; $i<count(@$_GET['lchk']); $i++){ //지역으로 검색 텍스트 필드값
+			$input_l = @$_GET['lchk'];
+		  }
+          for($i=0; $i<count(@$_GET['schk']); $i++){ //세부사항으로 검색 텍스트 필드값
+            $input_s = @$_GET['schk'];
+		  }
+		  
+		  $input_1=@$_GET['sido'];
+
           //입력에 따른 스위치 var 결정//
           $name_c;
           if (strlen($input_n)==0){
@@ -62,7 +68,7 @@
             $query_switch=0;
           }
           //db 접속 및 필요 함수
-          $db=mysqli_connect ('0.tcp.ngrok.io:13767', 'root', '1234', 'pcreview');
+          $db=mysqli_connect ('localhost', 'root', '1234', 'pcreview');
 					if($db){
 					}
 					else{
@@ -80,7 +86,7 @@
 		  $get_pcbnum; $result_get_num;
 		  $s1=0; $s2=0; $s3=0;
 		  $add_l="";$add_s=""; $forchk=false;
-		  $search_PCBNUM; $num; $pcbname;
+		  $search_PCBNUM; $num=0; $pcbname;
 		  
 
         switch($query_switch){
@@ -88,7 +94,7 @@
               $query = "SELECT * from pcbinfo";
             break;
             case 1: // 이름만 가지고 검색
-              $get_pcbnum = "SELECT * from pcbinfo WHERE PCBNAME='".$input_n."';"; 
+              $get_pcbnum = "SELECT * from pcbinfo WHERE PCBNAME LIKE '%".$input_n."%';"; 
               $result_get_num = mysqli_query($db, $get_pcbnum);
               while($board = mysqli_fetch_object($result_get_num)){
 				$num=$board->PCBNUM;
@@ -97,16 +103,16 @@
               $query = "SELECT * from pcbinfo  WHERE PCBNUM='".$num."'";
             break;
 			case 2: //장소만 가지고 검색
-				for($i=0; $i<count($_GET['lchk']); $i++){ //지역으로 검색 텍스트 필드값
+				for($i=0; $i<count(@$_GET['lchk']); $i++){ //지역으로 검색 텍스트 필드값
 					if (isset($_GET['lchk'][$i])==true)
 					{
 						if($forchk==false){
-							$input_l = $_GET['lchk'];
+							$input_l = @$_GET['lchk'];
 							$add_l="ADDRESS LIKE '%".$input_l[$i]."%' ";
 							$forchk=true;
 						}
 						else{
-							$input_l = $_GET['lchk'];
+							$input_l = @$_GET['lchk'];
 							$add_l=$add_l."OR ADDRESS LIKE '%".$input_l[$i]."%' ";
 							
 						}
@@ -127,7 +133,7 @@
             break;
 			case 3://세부사항만 가지고 검색
 				
-				for($i=0; $i<count($_GET['schk']); $i++){ //지역으로 검색 텍스트 필드값
+				for($i=0; $i<count(@$_GET['schk']); $i++){ //지역으로 검색 텍스트 필드값
 					if (isset($_GET['schk'][$i])==true&&$i==0)
 					{
 						$s1=1;
@@ -183,16 +189,16 @@
               $query = "SELECT * from pcbinfo WHERE PCBNUM='".$num."'";
             break;
 			case 6: 
-				for($i=0; $i<count($_GET['lchk']); $i++){ //지역으로 검색 텍스트 필드값
+				for($i=0; $i<count(@$_GET['lchk']); $i++){ //지역으로 검색 텍스트 필드값
 					if (isset($_GET['lchk'][$i])==true)
 					{
 						if($forchk==false){
-							$input_l = $_GET['lchk'];
+							$input_l = @$_GET['lchk'];
 							$add_l="ADDRESS LIKE '%".$input_l[$i]."%' ";
 							$forchk=true;
 						}
 						else{
-							$input_l = $_GET['lchk'];
+							$input_l = @$_GET['lchk'];
 							$add_l=$add_l."OR ADDRESS LIKE '%".$input_l[$i]."%' ";
 							
 						}
@@ -263,9 +269,9 @@
 				<tbody>
 				  <tr>
 					<td width="150">
-						<form action="../pcbanginfo/pcbanginfoframe.html" method="GET">
-						<input type="hidden" name="PCBNUM" value=<?php $pcbNumber ?>>
-						<input type="image" src=<?php $PCBimg ?> value=1 width="400" height="300">
+						<form action="../pcbanginfo/pcbanginfo.html" method="GET">
+						<input type="hidden" name="pcbnum" value=<?php echo $pcbNumber; ?>>
+						<input type="image" src=<?php echo $PCBimg; ?> value=1 width="400" height="300">
 					</form>
 					</td>
 					<td width="600">

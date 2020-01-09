@@ -9,7 +9,7 @@ $addr = $_POST['sido1'].$_POST['gugun1'];
 $email = $_POST['email'];
 
 if($passwd==$passwd_check){
-    @$db = new mysqli('0.tcp.ngrok.io:13767','root','1234','pcreview');
+    @$db = new mysqli('localhost','root','1234','pcreview');
     if(mysqli_connect_errno()){
         echo 'error try again later';
         exit;

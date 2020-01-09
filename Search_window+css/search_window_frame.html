@@ -13,6 +13,13 @@
 </head>
      <frameset frameborder="0" rows="95,*">
         <frame src="../menubar/MenuBar.html" >
-        <frame src="search_window.html">
+      
+        <?php 
+        $sido1 = $_GET['sido1'];
+        $gugun1 = $_GET['gugun1'];
+        $name = $_GET['search_word'];
+        echo "<frame src='search_window.html?sido=".$sido1."&gugun=".$gugun1."&name=".$name."'>";
+        ?>
+
      </frameset>
 </html>

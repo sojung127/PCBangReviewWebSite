@@ -12,7 +12,7 @@
 
 <body>
     <?php
-	$mysql_host = '0.tcp.ngrok.io:13767';
+	$mysql_host = 'localhost';
     $mysql_user = 'root';
     $mysql_password = '1234';
     $mysql_db = 'pcreview';
@@ -37,12 +37,12 @@
 	
 
     //별점순		
-	$starsql = 'SELECT reviewer, r1, r2, r3, star FROM pcbreview INNER JOIN pcbinfo ON pcbreview.pcbnum=pcbinfo.pcbnum ORDER BY star DESC';
+	$starsql = 'SELECT nickname, r1, r2, r3, star FROM pcbreview INNER JOIN pcbinfo ON pcbreview.pcbnum=pcbinfo.pcbnum ORDER BY star DESC';
     $starresult = mysqli_query($db,$starsql);
 			
 	//최신순
-	$reviewnumsql = 'SELECT reviewer, r1, r2, r3, star 
-					FROM pcbreview WHERE pcbreview.pcbnum='.$PCBNUM.'
+	$reviewnumsql = 'SELECT userinfo.nickname, pcbreview.r1, pcbreview.r2, pcbreview.r3, pcbreview.star 
+					FROM pcbreview,userinfo WHERE pcbreview.pcbnum='.$PCBNUM.' and userinfo.usernum=pcbreview.reviewer
 					ORDER BY reviewNUM DESC';
     $reviewnumresult = mysqli_query($db,$reviewnumsql);
 	//mysqli_close($db);
@@ -86,7 +86,7 @@
                             </select>
                         </div>
                         <div id="butreview">
-                            <a href="..\reviewWrite.html"> <button class="default"> 리뷰 작성 </button></a>
+                            <a href="../review/reviewWrite.html"> <button class="default"> 리뷰 작성 </button></a>
                         </div>
                     </div> <!-- buttons -->
                 </div> <!-- prev -->
@@ -112,7 +112,7 @@
                     //별점순 보여주기
                 
                     while($row = mysqli_fetch_array($reviewnumresult)) {
-                        echo  '<div class="review"><b>작성자: </b>'.$row['reviewer'].'<span class="star-rating">
+                        echo  '<div class="review"><b>작성자: </b>'.$row['nickname'].'<span class="star-rating">
                         <span style ="width:'. $row['star'].'*10%"></span>
                         </span>
                         <p>'.

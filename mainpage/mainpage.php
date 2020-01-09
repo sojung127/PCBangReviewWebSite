@@ -4,6 +4,13 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>PCBREVIEW</title>
+	<link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap&subset=korean" rel="stylesheet">
+	<style>
+		p{
+			font-family: 'Do Hyeon', sans-serif;
+		}
+	</style>
+
 	<link rel="stylesheet" href="mainpagecss.css"> 
 	<link rel="stylesheet" href="../menubar/MenuBar.css">
 
@@ -34,7 +41,7 @@
 
 <?php include('search.php'); ?>
 <?php 
-	@$db = new mysqli('0.tcp.ngrok.io:13767','root','1234','pcreview');
+	@$db = new mysqli('localhost','root','1234','pcreview');
 	if(mysqli_connect_errno()){
     	echo 'error try again later';
     	exit;
@@ -55,18 +62,18 @@
 		<div class="wrap">
 			<div class="menubar">
 				<ul class="menuLogo">
-					<li><a href="../review/reviewWriteFrame.html">리뷰하기</a></li>
-					
+					<a href="../review/reviewWriteFrame.html" style="text-decoration:none"><li>리뷰하기</li></a>
+					<a href="../Search_window+css/search_window_frame.html" style="text-decoration:none"><li>검색</li></a>
 				</ul>
 				<ul class="menuItem">
-					<li><a href="../login/loginFrame.html">로그인</a></li>
-					<li><a href="../signup/signupFrame.html">회원가입</a></li>
+					<li><a href="../login/loginFrame.html" style="text-decoration:none">로그인</a></li>
+					<li><a href="../signup/signupFrame.html" style="text-decoration:none">회원가입</a></li>
 				</ul>
 			</div>
 		</div>
 	</header>
 
-	<form name="f" onSubmit="checkForm()" Submit="checkForm()" method="post">
+	<form name="f" onSubmit="checkForm()" method="GET">
 	<div class="search">
 		<div class ="search_in">
 			<select name="sido1" id="sido1" class="select_box"></select>
@@ -76,7 +83,7 @@
 		<span class='green_window'>
 			<input type='text' name="search_word" class='input_text' style="background-color:transparent;">
 		</span>
-		<a href="..\Search_window+css\search_window_frame.html"><button type='submit' class='sch_smit' style="background-color:transparent;">검색</button></a>
+		<button type='submit' class='sch_smit' style="background-color:transparent;">검색</button></a>
 		</div>
 	</div>
 	</form>
@@ -87,6 +94,10 @@
 			var word = form.search_word.value;
 			if(form.sido1.value=="시/도 선택"  && word=="")
 				alert("주소를 선택하거나 검색어를 입력해주세요!");
+			else{
+				document.f.setAttribute('action','../Search_window+css/search_window_frame.html');
+				document.f.submit();
+			}
 		}
 	</script>
 </div>
@@ -98,12 +109,12 @@
 
 	<div class="your-class" align="center" style="width:90%; left: 5%;">
 		<div>
-			<form action="../pcbanginfo/pcbanginfoframe.html" method="GET"
+			<form action="../pcbanginfo/pcbanginfoframe.html" method="GET">
 			<input type="hidden" name="PCBNUM" value=<?php  echo $NUM1[0]; ?>>
 			<input type="image" src=<?php echo $IMG1[0] ?> width=500px height=360px style="border: 50 solid lightgray"
 			vspace=10 hspace=10>
 			</form>
-			<?php echo $NAME1[0];?>
+			<p style="font-family:Nanum Gothic; font-size: 15px;"><?php echo $NAME1[0];?></p>
 		</div>
 		<div>
 			<form action="../pcbanginfo/pcbanginfoframe.html" method="GET">
