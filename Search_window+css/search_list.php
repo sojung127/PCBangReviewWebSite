@@ -84,7 +84,7 @@
           //qeury switching
           $query;
 		  $get_pcbnum; $result_get_num;
-		  $s1=0; $s2=0; $s3=0;
+		  $s1=0; $s2=0; $s3=0; $g1=0; $g2=0; $g3=0; $g4=0; $g5=0;
 		  $add_l="";$add_s=""; $forchk=false;
 		  $search_PCBNUM; $num=0; $pcbname;
 		  
@@ -133,26 +133,48 @@
             break;
 			case 3://세부사항만 가지고 검색
 				
-				for($i=0; $i<count(@$_GET['schk']); $i++){ //지역으로 검색 텍스트 필드값
-					if (isset($_GET['schk'][$i])==true&&$i==0)
-					{
-						$s1=1;
-					}
-					
-					if (isset($_GET['schk'][$i])==true&&$i==1)
-					{
-						$s2=1;
-					}
-					
-				
-					if (isset($_GET['schk'][$i])==true&&$i==2)
-					{
-						$s3=1;
-					}
-					
-					
-				  }
-				$add_s="P1='".$s1."' AND P2 = '".$s2."' AND P3 = '".$s3."';";
+				for($i=0; $i<count($_GET['schk']); $i++){ //지역으로 검색 텍스트 필드값
+               if (isset($_GET['schk'][$i])==true&&$i==0)
+               {
+                  $s1=1;
+               }
+               
+               if (isset($_GET['schk'][$i])==true&&$i==1)
+               {
+                  $s2=1;
+               }
+               
+            
+               if (isset($_GET['schk'][$i])==true&&$i==2)
+               {
+                  $s3=1;
+               }
+
+               if (isset($_GET['schk'][$i])==true&&$i==3)
+               {
+                  $g1=1;
+               }
+               if (isset($_GET['schk'][$i])==true&&$i==4)
+               {
+                  $g2=1;
+               }
+               if (isset($_GET['schk'][$i])==true&&$i==5)
+               {
+                  $g3=1;
+               }
+               if (isset($_GET['schk'][$i])==true&&$i==6)
+               {
+                  $g4=1;
+               }
+               if (isset($_GET['schk'][$i])==true&&$i==7)
+               {
+                  $g5=1;
+               }
+
+               
+               
+              }
+            $add_s="P1='".$s1."' AND P2 = '".$s2."' AND P3 = '".$s3."' AND G1 = '".$g1."' AND G2 = '".$g2."' AND G3 = '".$g3."' AND G4 = '".$g4."' AND G5 = '".$g5."';";
 				$getpcbnum = "SELECT * from swinfo WHERE ".$add_s;
 				$rs2=mysqli_query($db, $getpcbnum);
 		  
